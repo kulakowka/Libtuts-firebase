@@ -1,0 +1,32 @@
+'use strict'
+
+var m = require('mithril')
+
+module.exports = function (ctrl) {
+  return (
+    <div>
+      <h2>Create account / Sign in</h2>
+      {ctrl.vm.currentUser() ? (
+        <div>
+          <input onchange={m.withAttr('value', ctrl.vm.email)} value={ctrl.vm.email()} placeholder='oldEmail'/>
+          <br/><br/>
+          <input onchange={m.withAttr('value', ctrl.vm.newEmail)} value={ctrl.vm.newEmail()} placeholder='newEmail'/>
+          <br/><br/>
+          <input onchange={m.withAttr('value', ctrl.vm.password)} value={ctrl.vm.password()} placeholder='Password'/>
+          <br/><br/>
+          <button onclick={ctrl.vm.changeEmail}>Change email</button>
+        </div>
+      ) : (
+        <div>
+          
+          <input onchange={m.withAttr('value', ctrl.vm.email)} value={ctrl.vm.email()} placeholder='Email'/>
+          <br/><br/>
+          <input onchange={m.withAttr('value', ctrl.vm.password)} value={ctrl.vm.password()} placeholder='Password'/>
+          <br/><br/>
+          <button onclick={ctrl.vm.createAccount}>Create account</button>
+          <button onclick={ctrl.vm.signIn}>Sign in</button>
+        </div>
+      )}
+    </div>
+  )
+}

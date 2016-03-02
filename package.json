@@ -1,0 +1,40 @@
+{
+  "name": "libtuts-firebase",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node_modules/.bin/gulp",
+    "clean": "node_modules/.bin/gulp clean",
+    "build": "NODE_ENV=production node_modules/.bin/gulp build",
+    "deploy": "node_modules/.bin/firebase deploy"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "firebase": "^2.4.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-newer": "^1.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rev": "^7.0.0",
+    "gulp-size": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.3.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "imagemin-pngquant": "^4.2.2",
+    "mithril": "^0.2.2-rc.1",
+    "mithrilify": "0.0.6",
+    "require-dir": "^0.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "config": "^1.19.0",
+    "debug": "^2.2.0",
+    "firebase-token-generator": "^2.0.0",
+    "request": "^2.69.0"
+  }
+}

@@ -1,4 +1,7 @@
 var m = require('mithril')
+var mixinLayout = require('../../components/mixinLayout')
+var layout = require('../../components/layout')
+var nav = require('../../components/nav')
 var config = require('../../config')
 var languagesRef = config.firebase.child('languages')
 
@@ -38,4 +41,4 @@ Languages.view = function(ctrl) {
   )
 }
 
-module.exports = Languages
+module.exports = {view: mixinLayout(layout, nav, Languages)}

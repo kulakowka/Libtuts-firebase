@@ -2,7 +2,7 @@
 
 var m = require('mithril')
 var config = require('../../config')
-var view = require('./view.msx')
+var view = require('./view')
 var mixinLayout = require('../mixinLayout')
 var layout = require('../layout')
 var nav = require('../nav')

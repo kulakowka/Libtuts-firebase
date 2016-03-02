@@ -22,9 +22,14 @@ module.exports = function (config) {
   const filename = config.filename
   const isDev = !config.isProduction
 
-  var b = browserify({
-    transform: ['mithrilify'],
-    entries
+  var b = browserify({entries})
+
+  b.transform('babelify', {
+    presets: ['es2015'],
+    plugins: [
+      ['syntax-jsx'],
+      ['mjsx', { jsxCompliant: true }]
+    ]
   })
 
   b.transform(envify({

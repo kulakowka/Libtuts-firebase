@@ -11,6 +11,9 @@ const size = require('gulp-size')
 // const plumber = require('gulp-plumber')
 const livereload = require('gulp-livereload')
 const gulpif = require('gulp-if')
+const envify = require('envify/custom')
+const config = require('config')
+const APP_ID = config.get('appId')
 
 module.exports = function (config) {
   const dest = config.dest
@@ -23,6 +26,11 @@ module.exports = function (config) {
     transform: ['mithrilify'],
     entries
   })
+
+  b.transform(envify({
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    APP_ID
+  }))
 
   return () => b.bundle()
     .pipe(source(filename))

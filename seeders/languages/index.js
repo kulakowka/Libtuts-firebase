@@ -7,10 +7,10 @@ var data = require('./data')
 
 // Prepare data in the right format
 data = data.reduce((data, name) => {
-  const slug = name.toLowerCase().replace(/\s/g, '-').replace(/\#/g, 'sharp').replace(/\+/g, 'p')
-  data[slug] = {
+  const id = name.toLowerCase().replace(/\s/g, '-').replace(/\#/g, 'sharp').replace(/\+/g, 'p')
+  data[id] = {
+    id,
     name,
-    slug,
     tutorialsCount: 0,
     projectsCount: 0
   }

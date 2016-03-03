@@ -1,13 +1,15 @@
 import m from 'mithril'
 import numeral from 'numeral'
+import helpers from '../../utils/helpers'
 
 export default function Language (item) {
-  let url = '/language/' + item.slug
+  const url = helpers.languageUrl(item)
+  const imgUrl = helpers.picUrl(item)
 
   return (
     <div class='languageItem'>
       <a href={url} config={m.route}>
-        <img src={'/images/pics/' + encodeURIComponent(item.slug) + '.png'}/>
+        <img src={imgUrl}/>
       </a>
       <h3><a href={url} config={m.route}>{item.name}</a></h3>
       <div class='meta'>

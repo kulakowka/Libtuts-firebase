@@ -1,8 +1,9 @@
 import m from 'mithril'
+import helpers from '../../utils/helpers'
 
 export default function About (item) {
-  const url = '/' + item.platform + '/' + item.name
-  const shieldSrc = '/shield' + url + '.svg'
+  const url = helpers.projectUrl(item)
+  const shieldSrc = helpers.projectShieldUrl(item)
 
   return (
     <div class='aboutProject'>

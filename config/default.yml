@@ -2,3 +2,4 @@ appId: libtuts
 secret: ZhlIvsDL9ifqeiVgAOyQP1FDaDzoIZp3cpexJW0Q
 seeder:
   uid: 1
+baseUrl: http://localhost:3000

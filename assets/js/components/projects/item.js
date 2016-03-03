@@ -1,8 +1,9 @@
 import m from 'mithril'
 import numeral from 'numeral'
+import helpers from '../../utils/helpers'
 
 export default function Project (item) {
-  let url = '/' + item.platform + '/' + item.name
+  const url = helpers.projectUrl(item)
 
   return (
     <div class='projectItem'>

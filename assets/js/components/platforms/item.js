@@ -1,13 +1,15 @@
 import m from 'mithril'
 import numeral from 'numeral'
+import helpers from '../../utils/helpers'
 
 export default function Platform (item) {
-  let url = '/' + item.slug
+  const url = helpers.platformUrl(item)
+  const imgUrl = helpers.picUrl(item)
 
   return (
     <div class='platformItem'>
       <a href={url} config={m.route}>
-        <img src={'/images/pics/' + encodeURIComponent(item.slug) + '.png'}/>
+        <img src={imgUrl}/>
       </a>
       <h3><a href={url} config={m.route}>{item.name}</a></h3>
       <div class='meta'>

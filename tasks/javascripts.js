@@ -14,6 +14,7 @@ const gulpif = require('gulp-if')
 const envify = require('envify/custom')
 const config = require('config')
 const APP_ID = config.get('appId')
+const BASE_URL = config.get('baseUrl')
 
 module.exports = function (config) {
   const dest = config.dest
@@ -34,6 +35,7 @@ module.exports = function (config) {
 
   b.transform(envify({
     NODE_ENV: process.env.NODE_ENV || 'development',
+    BASE_URL,
     APP_ID
   }))
 

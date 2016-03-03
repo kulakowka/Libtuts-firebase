@@ -12,16 +12,18 @@ import header from './components/header'
 import footer from './components/footer'
 import mixinLayout from './utils/mixinLayout'
 
+const mainLayout = mixinLayout.bind(null, layout, header, footer)
+
 const routes = {
-  '/': mixinLayout(layout, header, footer, Homepage),
+  '/': mainLayout(Homepage),
   // '/signin': signInPage,
   // '/signup': signUpPage,
-  '/languages': mixinLayout(layout, header, footer, LanguagesIndex),
-  '/language/:name': mixinLayout(layout, header, footer, LanguageShow),
-  '/projects': mixinLayout(layout, header, footer, ProjectsIndex),
-  '/platforms': mixinLayout(layout, header, footer, PlatformsIndex),
-  '/:name': mixinLayout(layout, header, footer, PlatformShow),
-  '/:platform/:name': mixinLayout(layout, header, footer, ProjectShow)
+  '/languages': mainLayout(LanguagesIndex),
+  '/language/:name': mainLayout(LanguageShow),
+  '/projects': mainLayout(ProjectsIndex),
+  '/platforms': mainLayout(PlatformsIndex),
+  '/:name': mainLayout(PlatformShow),
+  '/:platform/:name': mainLayout(ProjectShow)
 }
 
 export default routes

@@ -6,7 +6,7 @@ export default function Project (item) {
   const url = helpers.projectUrl(item)
 
   return (
-    <div class='projectItem'>
+    <div class='projectItem' key={item.id}>
       <h3><a href={url} config={m.route}>{item.name}</a></h3>
       <div class='meta'>
         <a href={url} config={m.route} title={numeral(item.tutorialsCount).format('0,0')}>{numeral(item.tutorialsCount).format('0a')} tutorials</a>

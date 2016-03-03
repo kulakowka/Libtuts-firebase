@@ -7,7 +7,7 @@ export default function Language (item) {
   const imgUrl = helpers.picUrl(item)
 
   return (
-    <div class='languageItem'>
+    <div class='languageItem' key={item.id}>
       <a href={url} config={m.route}>
         <img src={imgUrl}/>
       </a>

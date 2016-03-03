@@ -7,7 +7,7 @@ export default function Platform (item) {
   const imgUrl = helpers.picUrl(item)
 
   return (
-    <div class='platformItem'>
+    <div class='platformItem' key={item.id}>
       <a href={url} config={m.route}>
         <img src={imgUrl}/>
       </a>

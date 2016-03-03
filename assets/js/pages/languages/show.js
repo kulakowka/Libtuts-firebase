@@ -1,6 +1,6 @@
 import m from 'mithril'
 import firebase from '../../utils/firebase'
-import Item from '../../components/languages/item'
+import About from '../../components/languages/about'
 
 const Languages = {
   controller (args) {
@@ -12,8 +12,13 @@ const Languages = {
   view (ctrl) {
     return (
       <div>
-        <h1>language show</h1>
-        {Item(ctrl.language())}
+        {About(ctrl.language())}
+        <section>
+          include ../tutorials/includes/list
+        </section>
+        <section>
+          include ../projects/includes/grid
+        </section>
       </div>
     )
   }

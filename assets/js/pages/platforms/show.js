@@ -1,6 +1,6 @@
 import m from 'mithril'
 import firebase from '../../utils/firebase'
-import Item from '../../components/platforms/item'
+import About from '../../components/platforms/about'
 
 const Platforms = {
   controller (args) {
@@ -12,8 +12,13 @@ const Platforms = {
   view (ctrl) {
     return (
       <div>
-        <h1>platform show</h1>
-        {Item(ctrl.platform())}
+        {About(ctrl.platform())}
+        <section>
+          include ../tutorials/includes/list
+        </section>
+        <section>
+          include ../projects/includes/grid
+        </section>
       </div>
     )
   }

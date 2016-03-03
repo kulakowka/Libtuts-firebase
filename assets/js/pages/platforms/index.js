@@ -1,6 +1,6 @@
 import m from 'mithril'
 import firebase from '../../utils/firebase'
-import List from '../../components/platforms/list'
+import Grid from '../../components/platforms/grid'
 
 const Platforms = {
   controller (args) {
@@ -10,10 +10,9 @@ const Platforms = {
 
   view (ctrl) {
     return (
-      <div>
-        <h1>platforms index</h1>
-        {List(ctrl.list())}
-      </div>
+      <section>
+        {Grid(ctrl.list())}
+      </section>
     )
   }
 }

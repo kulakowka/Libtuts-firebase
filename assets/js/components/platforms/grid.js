@@ -1,9 +1,9 @@
 import m from 'mithril'
 import Item from './item'
 
-export default function Languages (items) {
+export default function Platforms (items) {
   return (
-    <div>
+    <div class='platformsGrid'>
       {items.map(Item)}
     </div>
    )

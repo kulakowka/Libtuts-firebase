@@ -1,11 +1,19 @@
 import m from 'mithril'
+import numeral from 'numeral'
 
 export default function Language (item) {
+  let url = '/language/' + item.slug
+
   return (
     <div class='languageItem'>
-      <h2><a href={'/language/' + item.slug} config={m.route}>{item.name}</a></h2>
-      <p>tutorialsCount: {item.tutorialsCount}</p>
-      <p>projectsCount: {item.projectsCount}</p>
+      <a href={url} config={m.route}>
+        <img src={'/images/pics/' + encodeURIComponent(item.slug) + '.png'}/>
+      </a>
+      <h3><a href={url} config={m.route}>{item.name}</a></h3>
+      <div class='meta'>
+        <a href={url} title={numeral(item.tutorialsCount).format('0,0')}>{numeral(item.tutorialsCount).format('0a')} tutorials</a>
+        <a href={url} title={numeral(item.projectsCount).format('0,0')}>{numeral(item.projectsCount).format('0a')} projects</a>
+      </div>
     </div>
    )
 }

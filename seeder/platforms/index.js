@@ -11,7 +11,6 @@ data = data.reduce((data, name) => {
   data[slug] = {
     name,
     slug,
-    tutorialsCount: 0,
     projectsCount: 0
   }
   return data

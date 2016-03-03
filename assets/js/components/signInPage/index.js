@@ -1,7 +1,7 @@
 'use strict'
 
 var m = require('mithril')
-var config = require('../../config')
+var firebase = require('../../utils/firebase')
 var view = require('./view')
 var mixinLayout = require('../mixinLayout')
 var layout = require('../layout')
@@ -10,21 +10,17 @@ var nav = require('../nav')
 var loginPage = {
   vm: (function () {
     var vm = {}
-    vm.init = function () {
+    vm.init = () => {
       vm.email = m.prop('kulakowka@gmail.com')
       vm.password = m.prop('ak87c210xx')
-      vm.signIn = function () {
+      vm.signIn = () => {
         if (vm.email() && vm.password()) {
-          config.firebase.authWithPassword({
+          firebase.authWithPassword({
             email: vm.email(),
             password: vm.password()
-          }, function (error, authData) {
-            if (error) {
-              console.log('Login Failed!', error)
-            } else {
-              m.route('/')
-              console.log('Authenticated successfully with payload:', authData)
-            }
+          }, (error, authData) => {
+            if (error) return console.log('Login Failed!', error)
+            m.route('/')
           })
         }
       }

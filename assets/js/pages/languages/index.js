@@ -1,41 +1,21 @@
-var m = require('mithril')
-var mixinLayout = require('../../components/mixinLayout')
-var layout = require('../../components/layout')
-var nav = require('../../components/nav')
-var fb = require('../../utils/firebase')
+import m from 'mithril'
+import firebase from '../../utils/firebase'
+import Language from './_language'
 
-function toArray (obj) {
-  return Object.keys(obj).map((key) => obj[key])
+const Languages = {
+  controller (args) {
+    this.list = m.prop([])
+    firebase.on('languages', 'value', (data) => this.list(firebase.toArray(data.val())))
+  },
+
+  view (ctrl) {
+    return (
+      <div>
+        <h1>languages index</h1>
+        {ctrl.list().map(Language)}
+      </div>
+    )
+  }
 }
 
-var Languages = {}
-
-Languages.controller = function (args) {
-  Languages.list = m.prop([])
-  fb.getData('languages', function (data) {
-    Languages.list(toArray(data))
-  })
-}
-
-Languages.view = function (ctrl) {
-  var list = Languages.list()
-  console.log('render Languages.view')
-  return (
-  <div>
-    <h1>languages</h1>
-    {list.map(function (language) {
-       return (
-       <div>
-         <h2>{language.name}</h2>
-         <p>
-           tutorialsCount:
-           {language.tutorialsCount}
-         </p>
-       </div>
-       )
-     })}
-  </div>
-  )
-}
-
-module.exports = {view: mixinLayout(layout, nav, Languages)}
+export default Languages

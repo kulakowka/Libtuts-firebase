@@ -1,7 +1,7 @@
 'use strict'
 
 var m = require('mithril')
-var config = require('../../config')
+var firebase = require('../../utils/firebase')
 var view = require('./view')
 var mixinLayout = require('../mixinLayout')
 var layout = require('../layout')
@@ -15,7 +15,7 @@ var signUpPage = {
       vm.password = m.prop('ak87c210xx')
       vm.createAccount = function () {
         if (vm.email() && vm.password()) {
-          config.firebase.createUser({
+          firebase.createUser({
             email: vm.email(),
             password: vm.password()
           }, function (error, userData) {

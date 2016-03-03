@@ -1,31 +1,19 @@
-var m = require('mithril')
-var config = require('./config')
+import m from 'mithril'
+
+// import signInPage from './components/signInPage'
+// import signUpPage from './components/signUpPage'
+import Homepage from './pages/homepage/index'
+import LanguagesIndex from './pages/languages/index'
+import LanguagesShow from './pages/languages/show'
+import layout from './layouts/main'
+import nav from './components/nav'
+import mixinLayout from './utils/mixinLayout'
 
 m.route.mode = 'pathname'
-
-var homePage = require('./components/homePage')
-var signInPage = require('./components/signInPage')
-var signUpPage = require('./components/signUpPage')
-
-var LanguagesIndexPage = require('./pages/languages/index')
-var LanguagesShowPage = require('./pages/languages/show')
-
-// initialize the application
 m.route(document.getElementById('app'), '/', {
-  '/': homePage,
-  '/signin': signInPage,
-  '/signup': signUpPage,
-
-  '/languages': LanguagesIndexPage,
-  '/language/:name': LanguagesShowPage
-
+  '/': mixinLayout(layout, nav, Homepage),
+  // '/signin': signInPage,
+  // '/signup': signUpPage,
+  '/languages': mixinLayout(layout, nav, LanguagesIndex),
+  '/language/:name': mixinLayout(layout, nav, LanguagesShow)
 })
-
-// config.firebase.onAuth(function (authData) {
-//   if (authData) {
-//     console.log('Authenticated with uid:', authData.uid)
-//   } else {
-//     console.log('Client unauthenticated.')
-//     m.route('/')
-//   }
-// })

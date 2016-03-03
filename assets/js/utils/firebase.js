@@ -8,7 +8,6 @@ firebase.on = function (path, eventType, callback, cancelCallback, context) {
   var ref = firebase.child(path)
 
   m.startComputation()
-
   return ref.on(eventType, function () {
     callback(...arguments)
     m.endComputation()

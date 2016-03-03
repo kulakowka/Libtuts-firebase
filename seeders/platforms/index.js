@@ -1,8 +1,8 @@
 'use strict'
 
-var debug = require('debug')('seed:languages')
+var debug = require('debug')('seed:platforms')
 var assert = require('assert')
-var firebase = require('../utils/firebase')
+var firebase = require('../../utils/firebase')
 var data = require('./data')
 
 // Prepare data in the right format
@@ -11,18 +11,17 @@ data = data.reduce((data, name) => {
   data[slug] = {
     name,
     slug,
-    tutorialsCount: 0,
     projectsCount: 0
   }
   return data
 }, {})
 
 // Save data to firebase
-firebase.set('languages', data, (err, result) => {
+firebase.set('platforms', data, (err, result) => {
   assert.ifError(err)
   assert.ok(result)
 
   const count = Object.keys(result).length
 
-  debug(`${count} languages has been set`)
+  debug(`${count} platforms has been set`)
 })

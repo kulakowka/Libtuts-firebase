@@ -2,13 +2,16 @@ import m from 'mithril'
 import firebase from '../../utils/firebase'
 import Languages from '../../components/languages/grid'
 import Platforms from '../../components/platforms/grid'
+import Projects from '../../components/projects/grid'
 
 const Homepage = {
   controller (args) {
     this.languages = m.prop([])
     this.platforms = m.prop([])
+    this.projects = m.prop([])
     firebase.on('languages', 'value', (data) => this.languages(firebase.toArray(data.val())))
     firebase.on('platforms', 'value', (data) => this.platforms(firebase.toArray(data.val())))
+    firebase.on('projects', 'value', (data) => this.projects(firebase.toArray(data.val())))
   },
 
   view (ctrl) {
@@ -28,7 +31,7 @@ const Homepage = {
         <div class='row row-l'>
           <div class='col'>
             <section>
-              projects grid
+              {Projects(ctrl.projects())}
             </section>
             <section>
               {Languages(ctrl.languages())}

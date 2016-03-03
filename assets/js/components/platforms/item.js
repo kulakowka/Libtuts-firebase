@@ -11,7 +11,7 @@ export default function Platform (item) {
       </a>
       <h3><a href={url} config={m.route}>{item.name}</a></h3>
       <div class='meta'>
-        <a href={url} title={numeral(item.projectsCount).format('0,0')}>{numeral(item.projectsCount).format('0a')} projects</a>
+        <a href={url} config={m.route} title={numeral(item.projectsCount).format('0,0')}>{numeral(item.projectsCount).format('0a')} projects</a>
       </div>
     </div>
    )

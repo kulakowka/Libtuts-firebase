@@ -2,7 +2,7 @@ import m from 'mithril'
 import firebase from '../../utils/firebase'
 import About from '../../components/languages/about'
 
-const Languages = {
+const Language = {
   controller (args) {
     let name = m.route.param('name')
     this.language = m.prop()
@@ -24,4 +24,4 @@ const Languages = {
   }
 }
 
-export default Languages
+export default Language

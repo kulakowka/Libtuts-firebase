@@ -9,3 +9,9 @@ DEBUG=seed:* node seeders/languages/index.js
 ```
 DEBUG=seed:* node seeders/platforms/index.js
 ```
+
+#### Seed tutorials:
+
+```
+DEBUG=seed:* node seeders/tutorials/index.js
+```

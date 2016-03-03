@@ -1,6 +1,8 @@
 // import signInPage from './components/signInPage'
 // import signUpPage from './components/signUpPage'
 import Homepage from './pages/homepage/index'
+import TutorialsIndex from './pages/tutorials/index'
+import TutorialShow from './pages/tutorials/show'
 import LanguagesIndex from './pages/languages/index'
 import LanguageShow from './pages/languages/show'
 import PlatformsIndex from './pages/platforms/index'
@@ -18,11 +20,13 @@ const routes = {
   '/': mainLayout(Homepage),
   // '/signin': signInPage,
   // '/signup': signUpPage,
+  '/tutorials': mainLayout(TutorialsIndex),
+  '/tutorial/:id': mainLayout(TutorialShow),
   '/languages': mainLayout(LanguagesIndex),
-  '/language/:name': mainLayout(LanguageShow),
+  '/language/:id': mainLayout(LanguageShow),
   '/projects': mainLayout(ProjectsIndex),
   '/platforms': mainLayout(PlatformsIndex),
-  '/:name': mainLayout(PlatformShow),
+  '/:id': mainLayout(PlatformShow),
   '/:platform/:name': mainLayout(ProjectShow)
 }
 

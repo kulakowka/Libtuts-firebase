@@ -15,7 +15,11 @@ firebase.on = function (path, eventType, callback, cancelCallback, context) {
 }
 
 firebase.toArray = function (obj) {
-  return Object.keys(obj).map((key) => obj[key])
+  return Object.keys(obj).map((key) => {
+    let item = obj[key]
+    item.id = key
+    return item
+  })
 }
 
 export default firebase

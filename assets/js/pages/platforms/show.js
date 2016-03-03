@@ -4,9 +4,9 @@ import About from '../../components/platforms/about'
 
 const Platforms = {
   controller (args) {
-    let name = m.route.param('name')
+    let id = m.route.param('id')
     this.platform = m.prop()
-    firebase.on('platforms/' + name, 'value', (data) => this.platform(data.val()))
+    firebase.on('platforms/' + id, 'value', (data) => this.platform(data.val()))
   },
 
   view (ctrl) {

@@ -1,6 +1,14 @@
 const baseUrl = process.env.BASE_URL
 
 const helpers = {
+  tutorialUrl (item) {
+    return baseUrl + '/tutorial/' + item.id
+  },
+
+  tutorialEditUrl (item) {
+    return baseUrl + '/tutorial/' + item.id + '/edit'
+  },
+
   languageUrl (item) {
     return baseUrl + '/language/' + item.id
   },

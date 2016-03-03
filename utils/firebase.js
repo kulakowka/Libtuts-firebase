@@ -44,3 +44,20 @@ module.exports.set = function setData (path, data, callback) {
     callback(err, body)
   })
 }
+
+module.exports.push = function pushData (path, data, callback) {
+  debug(`set data to /${path}.json`)
+
+  request({
+    uri: `https://${APP_ID}.firebaseio.com/${path}.json`,
+    method: 'post',
+    json: data,
+    time: true,
+    qs: {
+      auth: token
+    }
+  }, (err, res, body) => {
+    debug('push data elapsedTime: %d ms', res.elapsedTime)
+    callback(err, body)
+  })
+}

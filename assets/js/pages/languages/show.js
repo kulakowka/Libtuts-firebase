@@ -4,9 +4,9 @@ import About from '../../components/languages/about'
 
 const Language = {
   controller (args) {
-    let name = m.route.param('name')
+    let id = m.route.param('id')
     this.language = m.prop()
-    firebase.on('languages/' + name, 'value', (data) => this.language(data.val()))
+    firebase.on('languages/' + id, 'value', (data) => this.language(data.val()))
   },
 
   view (ctrl) {

@@ -1,12 +1,13 @@
 import m from 'mithril'
 
-export default function MainLayout (nav, body) {
+export default function MainLayout (header, footer, body) {
   return {
     view () {
       return (
-        <div class='layout'>
-          <header>{m.component(nav)}</header>
-          <div class='body'>{m.component(body)}</div>
+        <div>
+          {m.component(header)}
+          <div class='layout'>{m.component(body)}</div>
+          {m.component(footer)}
         </div>
       )
     }

@@ -16,8 +16,10 @@ const Homepage = {
       <div>
         <h1>languages</h1>
         {LanguagesList(ctrl.languages())}
+        
         <h1>platforms</h1>
         {PlatformsList(ctrl.platforms())}
+        
       </div>
     )
   }

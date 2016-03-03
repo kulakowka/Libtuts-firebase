@@ -12,6 +12,13 @@ const Homepage = {
     firebase.on('languages', 'value', (data) => this.languages(firebase.toArray(data.val())))
     firebase.on('platforms', 'value', (data) => this.platforms(firebase.toArray(data.val())))
     firebase.on('projects', 'value', (data) => this.projects(firebase.toArray(data.val())))
+
+    // return {
+    //   onunload () {
+    //     // TODO: перестать слушать обновления
+    //     console.log('unloading my component')
+    //   }
+    // }
   },
 
   view (ctrl) {

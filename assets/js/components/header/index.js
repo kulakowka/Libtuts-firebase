@@ -1,5 +1,6 @@
 import m from 'mithril'
 import firebase from '../../utils/firebase'
+import Dropdown from '../dropdown'
 
 const Header = {
   view () {
@@ -35,13 +36,10 @@ const Header = {
             </nav>
           ) : (
             <nav class='guestMenu'>
-              <span class='dropdown'>
-                <a class='item handle'>Sign in</a>
-                <span class='menu right'>
-                  <a href={'/auth/signin'} config={m.route}>Sign in</a>
-                  <a href={'/auth/signup'} config={m.route}>Sign up</a>
-                </span>
-              </span>
+              {m.component(Dropdown, {handle: 'Sign in', items: [
+                <a href={'/auth/signin'} config={m.route}>Sign in</a>,
+                <a href={'/auth/signup'} config={m.route}>Sign up</a>
+              ]})}
             </nav>
           )}
         </div>

@@ -2,7 +2,8 @@
   "name": "libtuts-firebase",
   "version": "1.0.0",
   "scripts": {
-    "start": "gulp",
+    "start:server": "DEBUG=app:* nodemon server/bin/www",
+    "start:client": "gulp",
     "clean": "gulp clean",
     "build": "NODE_ENV=production gulp build",
     "bolt": "firebase-bolt < config/firebase/rules.bolt",

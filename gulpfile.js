@@ -9,30 +9,30 @@ const config = {
   assets: {
     showFiles: true,
     dest: 'public',
-    src: 'assets/*'
+    src: 'client/*'
   },
   watch: {
-    javascripts: 'assets/js/**/*',
-    styles: 'assets/css/**/*',
+    javascripts: 'client/js/**/*',
+    styles: 'client/css/**/*',
     views: 'views/**/*'
   },
   javascripts: {
     filename: 'app.js',
     showFiles: true,
     dest: 'public/js',
-    src: 'assets/js/app.js'
+    src: 'client/js/app.js'
   },
   styles: {
     compress: true,
     showFiles: true,
     dest: 'public/css',
-    src: 'assets/css/app.styl'
+    src: 'client/css/app.styl'
   },
   images: {
     progressive: true,
     showFiles: true,
     dest: 'public/images',
-    src: 'assets/images/**'
+    src: 'client/images/**'
   },
   build: {
     showFiles: true,

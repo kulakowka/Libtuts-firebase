@@ -22,11 +22,10 @@ path /queue/tasks {
 
 path /platforms {
   read() { true }
-}
-
-path /platforms/{id} is Platform {
   write() { isServerWorker() }
 }
+
+path /platforms/{id} is Platform;
 
 path /platform_projects/{id} is PlatformProject;
 

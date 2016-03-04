@@ -1,31 +1,118 @@
-[ 
-  "Go",
-  "NPM",
-  "Maven",
-  "Rubygems",
-  "Packagist",
-  "Pypi",
-  "NuGet",
-  "Bower",
-  "WordPress",
-  "CPAN",
-  "CocoaPods",
-  "Clojars",
-  "Meteor",
-  "Hackage",
-  "CRAN",
-  "Atom",
-  "Cargo",
-  "Emacs",
-  "Pub",
-  "Sublime",
-  "biicode",
-  "Hex",
-  "Julia",
-  "Jam",
-  "Dub",
-  "Alcatraz",
-  "Nimble",
-  "PlatformIO",
-  "Elm" 
-]
+{
+  "go": {
+    "name": "Go",
+    "projectsCount": 0
+  },
+  "npm": {
+    "name": "NPM",
+    "projectsCount": 0
+  },
+  "maven": {
+    "name": "Maven",
+    "projectsCount": 0
+  },
+  "rubygems": {
+    "name": "Rubygems",
+    "projectsCount": 0
+  },
+  "packagist": {
+    "name": "Packagist",
+    "projectsCount": 0
+  },
+  "pypi": {
+    "name": "Pypi",
+    "projectsCount": 0
+  },
+  "nuget": {
+    "name": "NuGet",
+    "projectsCount": 0
+  },
+  "bower": {
+    "name": "Bower",
+    "projectsCount": 0
+  },
+  "wordpress": {
+    "name": "WordPress",
+    "projectsCount": 0
+  },
+  "cpan": {
+    "name": "CPAN",
+    "projectsCount": 0
+  },
+  "cocoapods": {
+    "name": "CocoaPods",
+    "projectsCount": 0
+  },
+  "clojars": {
+    "name": "Clojars",
+    "projectsCount": 0
+  },
+  "meteor": {
+    "name": "Meteor",
+    "projectsCount": 0
+  },
+  "hackage": {
+    "name": "Hackage",
+    "projectsCount": 0
+  },
+  "cran": {
+    "name": "CRAN",
+    "projectsCount": 0
+  },
+  "atom": {
+    "name": "Atom",
+    "projectsCount": 0
+  },
+  "cargo": {
+    "name": "Cargo",
+    "projectsCount": 0
+  },
+  "emacs": {
+    "name": "Emacs",
+    "projectsCount": 0
+  },
+  "pub": {
+    "name": "Pub",
+    "projectsCount": 0
+  },
+  "sublime": {
+    "name": "Sublime",
+    "projectsCount": 0
+  },
+  "biicode": {
+    "name": "biicode",
+    "projectsCount": 0
+  },
+  "hex": {
+    "name": "Hex",
+    "projectsCount": 0
+  },
+  "julia": {
+    "name": "Julia",
+    "projectsCount": 0
+  },
+  "jam": {
+    "name": "Jam",
+    "projectsCount": 0
+  },
+  "dub": {
+    "name": "Dub",
+    "projectsCount": 0
+  },
+  "alcatraz": {
+    "name": "Alcatraz",
+    "projectsCount": 0
+  },
+  "nimble": {
+    "name": "Nimble",
+    "projectsCount": 0
+  },
+  "platformio": {
+    "name": "PlatformIO",
+    "projectsCount": 0
+  },
+  "elm": {
+    "name": "Elm",
+    "projectsCount": 0
+  }
+}

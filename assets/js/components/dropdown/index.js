@@ -3,7 +3,6 @@ import m from 'mithril'
 
 const Dropdown = {
   controller (args) {
-    console.log('init')
     return {
       isOpen: m.prop(false),
       toggle (e) {

@@ -1,10 +1,14 @@
 import m from 'mithril'
 import Item from './item'
 
-export default function Languages (items) {
+export default function Languages (data) {
+  let list = []
+  data.forEach((item) => {
+    list.push(item)
+  })
   return (
     <div class='languagesGrid'>
-      {items.map(Item)}
+      {list.map(Item)}
     </div>
    )
 }

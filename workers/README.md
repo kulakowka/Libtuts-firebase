@@ -9,3 +9,9 @@ DEBUG=worker:* node workers/projects/index.js
 ```
 DEBUG=worker:* node workers/platforms/index.js
 ```
+
+#### Languages worker:
+
+```
+DEBUG=worker:* node workers/languages/index.js
+```

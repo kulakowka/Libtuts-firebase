@@ -1,6 +1,6 @@
 'use strict'
 
-var debug = require('debug')('worker:platforms')
+var debug = require('debug')('worker:languages')
 var firebase = require('../../utils/firebase')
 var async = require('async')
 var co = require('co')
@@ -11,28 +11,28 @@ const sleep = 1000 * 60 * 10   // 10 min
 // Start worker
 startProcess()
 
-// Get all platforms and update data for each platform
+// Get all languages and update data for each language
 function startProcess () {
   firebase
-  .get('platforms', {shallow: true})
+  .get('languages', {shallow: true})
   .then(Object.keys)
-  .then(processPlatforms)
+  .then(processLanguages)
   .then(() => setTimeout(startProcess, sleep))
   .catch(console.log)
 }
 
 // Helpers
 
-function processPlatforms (platforms) {
+function processLanguages (languages) {
   return new Promise((resolve, reject) => {
-    async.mapSeries(platforms, processPlatform, (err, result) => {
+    async.mapSeries(languages, processLanguage, (err, result) => {
       if (err) return reject(err)
       resolve(result)
     })
   })
 }
 
-function processPlatform (id, callback) {
+function processLanguage (id, callback) {
   co(function *() {
     return yield {
       id,
@@ -40,17 +40,17 @@ function processPlatform (id, callback) {
         projectsCount: getProjectsCount(id)
       }
     }
-  }).then(updatePlatform).then(callback).catch(console.log)
+  }).then(updateLanguage).then(callback).catch(console.log)
 }
 
-function updatePlatform (result) {
+function updateLanguage (result) {
   return firebase
-        .update('platforms/' + result.id, result.data)
+        .update('languages/' + result.id, result.data)
         .then((data) => debug('%s: %d projects', result.id, data.projectsCount))
 }
 
 function getProjectsCount (id) {
-  return firebase.get('platform_projects/' + id, {shallow: true}).then(getNumChildren)
+  return firebase.get('language_projects/' + id, {shallow: true}).then(getNumChildren)
 }
 
 function getNumChildren (obj) {

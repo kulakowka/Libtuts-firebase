@@ -1,16 +1,55 @@
-path /users/{id} is User;
-path /rooms/{id} is Room;
+// Platforms
 
-type User {
-  name: NameString,
-  isAdmin: Boolean
+path /platforms {
+  read() { true }
 }
 
-type Room {
-  name: NameString,
-  creator: String
+path /platforms/{id} is Platform {
+  read() { true }
+  write() { isServerWorker() }
 }
 
-type NameString extends String {
-  validate() { this.length > 0 && this.length <= 32 }
+path /platform_projects/{id} is PlatformProject {
+  read() { true }
+  write() { isServerWorker() }
 }
+
+type Platform {
+  name: String,
+  projectsCount: Number | Null
+}
+
+type PlatformProject {
+  $other: Boolean
+}
+
+// Languages
+
+path /languages {
+  read() { true }
+}
+
+path /languages/{id} is Language {
+  read() { true }
+  write() { isServerWorker() }
+}
+
+path /language_projects/{id} is LanguageProject {
+  read() { true }
+  write() { isServerWorker() }
+}
+
+type Language {
+  name: String,
+  projectsCount: Number | Null
+}
+
+type LanguageProject {
+  $other: Boolean
+}
+
+// Helpers
+
+isCurrentUser(uid) { auth != null && auth.uid == uid }
+isAdminUser() { auth != null && auth.admin == true }
+isServerWorker() { auth != null && auth.uid == 'server_worker' }

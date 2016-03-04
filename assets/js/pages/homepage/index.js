@@ -16,12 +16,18 @@ const Homepage = {
     firebase.on('platforms', 'value', (data) => this.platforms(firebase.toArray(data.val())))
     firebase.on('projects', 'value', (data) => this.projects(firebase.toArray(data.val())))
 
-    // return {
-    //   onunload () {
-    //     // TODO: перестать слушать обновления
-    //     console.log('unloading my component')
-    //   }
-    // }
+    // // Test read
+    // firebase.child('languages').once('value', (data) => {
+    //   console.log('/languages', data.val())
+    //   firebase.child('languages/javascript').once('value', (data) => {
+    //     console.log('/languages/javascript', data.val())
+    //     firebase.child('languages/javascript/name').once('value', (data) => {
+    //       console.log('/languages/javascript/name', data.val())
+    //       // Test write
+    //       firebase.child('languages/javascript/name').set('gagno')
+    //     })
+    //   })
+    // })
   },
 
   view (ctrl) {

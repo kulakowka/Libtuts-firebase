@@ -4,18 +4,15 @@ var debug = require('debug')('seed:request')
 var FirebaseTokenGenerator = require('firebase-token-generator')
 
 const SECRET = config.get('secret')
-const UID = config.get('seeder.uid')
 const APP_ID = config.get('appId')
 
 var tokenGenerator = new FirebaseTokenGenerator(SECRET)
-var token = tokenGenerator.createToken(
-  {uid: UID.toString()},
-  {admin: true}
-)
+var token = tokenGenerator.createToken({uid: 'server_worker'})
 
-module.exports.get = function getData (path, qs, callback) {
+module.exports.get = function getData (path, qs) {
   debug(`get data from /${path}.json`)
-  request({
+
+  const options = {
     uri: `https://${APP_ID}.firebaseio.com/${path}.json`,
     method: 'get',
     json: true,
@@ -23,18 +20,47 @@ module.exports.get = function getData (path, qs, callback) {
     qs: Object.assign({
       auth: token
     }, qs)
-  }, (err, res, body) => {
-    debug('get data elapsedTime: %d ms', res.elapsedTime)
-    callback(err, body)
+  }
+
+  return new Promise((resolve, reject) => {
+    request(options, (err, res, body) => {
+      debug('get data elapsedTime: %d ms', res.elapsedTime)
+      if (err) return reject(err)
+      if (res.statusCode !== 200) return reject(new Error(res.statusMessage))
+      resolve(body)
+    })
   })
 }
 
-module.exports.set = function setData (path, data, callback) {
+module.exports.update = function updateData (path, json, qs) {
+  debug(`update data for /${path}.json`)
+
+  const options = {
+    uri: `https://${APP_ID}.firebaseio.com/${path}.json`,
+    method: 'patch',
+    json,
+    time: true,
+    qs: Object.assign({
+      auth: token
+    }, qs)
+  }
+
+  return new Promise((resolve, reject) => {
+    request(options, (err, res, body) => {
+      debug('update data elapsedTime: %d ms', res.elapsedTime)
+      if (err) return reject(err)
+      if (res.statusCode !== 200) return reject(new Error(res.statusMessage))
+      resolve(body)
+    })
+  })
+}
+
+module.exports.set = function setData (path, json, callback) {
   debug(`set data to /${path}.json`)
   request({
     uri: `https://${APP_ID}.firebaseio.com/${path}.json`,
     method: 'put',
-    json: data,
+    json,
     time: true,
     qs: {
       auth: token

@@ -1,6 +1,5 @@
 import m from 'mithril'
 import firebase from '../../utils/firebase'
-import helpers from '../../utils/helpers'
 import Grid from '../../components/platforms/grid'
 
 const Platforms = {

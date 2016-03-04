@@ -2,19 +2,21 @@ import m from 'mithril'
 import numeral from 'numeral'
 import helpers from '../../utils/helpers'
 
-export default function Language (item) {
-  const url = helpers.languageUrl(item)
-  const imgUrl = helpers.picUrl(item)
+export default function Language (data) {
+  const id = data.key()
+  const {name, projectsCount, tutorialsCount} = data.val()
+  const url = helpers.languageUrl(id)
+  const imgUrl = helpers.picUrl(id)
 
   return (
-    <div class='languageItem' key={item.id}>
+    <div class='languageItem' key={id}>
       <a href={url} config={m.route}>
         <img src={imgUrl}/>
       </a>
-      <h3><a href={url} config={m.route}>{item.name}</a></h3>
+      <h3><a href={url} config={m.route}>{name}</a></h3>
       <div class='meta'>
-        <a href={url} config={m.route} title={numeral(item.tutorialsCount).format('0,0')}>{numeral(item.tutorialsCount).format('0a')} tutorials</a>
-        <a href={url} config={m.route} title={numeral(item.projectsCount).format('0,0')}>{numeral(item.projectsCount).format('0a')} projects</a>
+        <a href={url} config={m.route} title={numeral(tutorialsCount).format('0,0')}>{numeral(tutorialsCount).format('0a')} tutorials</a>
+        <a href={url} config={m.route} title={numeral(projectsCount).format('0,0')}>{numeral(projectsCount).format('0a')} projects</a>
       </div>
     </div>
    )

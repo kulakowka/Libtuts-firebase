@@ -4,8 +4,14 @@ import Grid from '../../components/languages/grid'
 
 const Languages = {
   controller (args) {
-    this.list = m.prop([])
-    firebase.on('languages', 'value', (data) => this.list(firebase.toArray(data.val())))
+    this.list = m.prop(null)
+
+    // Get languages and redraw when it will received from firebase
+    m.startComputation()
+    firebase.child('languages').on('value', (data) => {
+      this.list(data)
+      m.endComputation()
+    })
   },
 
   view (ctrl) {

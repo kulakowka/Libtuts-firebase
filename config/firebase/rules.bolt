@@ -1,4 +1,16 @@
-path / {
+// Allow anyone to read the list of Posts.
+path /posts {
   read() { true }
+}
+
+// All individual Posts are writable by anyone.
+path /posts/{id} is Post {
   write() { true }
+}
+
+type Post {
+  validate() { this.message.length <= 140 }
+
+  message: String,
+  from: String
 }

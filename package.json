@@ -5,8 +5,7 @@
     "start": "gulp",
     "clean": "gulp clean",
     "build": "NODE_ENV=production gulp build",
-    "bolt": "firebase-bolt config/firebase/rules.bolt",
-    "deploy": "npm run bolt; firebase deploy"
+    "deploy": "firebase deploy"
   },
   "devDependencies": {
     "babel-plugin-mjsx": "^4.1.1",
@@ -17,7 +16,6 @@
     "del": "^2.2.0",
     "envify": "^3.4.0",
     "firebase": "^2.4.1",
-    "firebase-bolt": "^0.8.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-if": "^2.0.0",

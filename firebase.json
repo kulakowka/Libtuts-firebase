@@ -1,6 +1,6 @@
 {
   "firebase": "libtuts",
-  "rules": "config/firebase/rules.json",
+  "rules": "config/firebase/rules.bolt",
   "ignore": [
     "firebase.json",
     "**/.*",

@@ -11,12 +11,19 @@ const Homepage = {
     this.languages = m.prop([])
     this.platforms = m.prop([])
     this.projects = m.prop([])
-    firebase.on('tutorials', 'value', (data) => this.tutorials(firebase.toArray(data.val())))
-    firebase.on('languages', 'value', (data) => this.languages(firebase.toArray(data.val())))
-    firebase.on('platforms', 'value', (data) => this.platforms(firebase.toArray(data.val())))
-    firebase.on('projects', 'value', (data) => this.projects(firebase.toArray(data.val())))
+    // firebase.on('tutorials', 'value', (data) => this.tutorials(firebase.toArray(data.val())))
+    // firebase.on('languages', 'value', (data) => this.languages(firebase.toArray(data.val())))
+    // firebase.on('platforms', 'value', (data) => this.platforms(firebase.toArray(data.val())))
+    // firebase.on('projects', 'value', (data) => this.projects(firebase.toArray(data.val())))
 
-    // // Test read
+    // Add tasks onto the queue
+    var taskNumber = 0
+    setInterval(function () {
+      firebase.child('queue/tasks').push({
+        taskNumber: ++taskNumber
+      })
+    }, 1000)
+
     // firebase.child('languages').once('value', (data) => {
     //   console.log('/languages', data.val())
     //   firebase.child('languages/javascript').once('value', (data) => {
@@ -25,6 +32,18 @@ const Homepage = {
     //       console.log('/languages/javascript/name', data.val())
     //       // Test write
     //       firebase.child('languages/javascript/name').set('gagno')
+    //     })
+    //   })
+    // })
+
+    // firebase.child('platforms').once('value', (data) => {
+    //   console.log('/platforms', data.val())
+    //   firebase.child('platforms/npm').once('value', (data) => {
+    //     console.log('/platforms/npm', data.val())
+    //     firebase.child('platforms/npm/name').once('value', (data) => {
+    //       console.log('/platforms/npm/name', data.val())
+    //       // Test write
+    //       firebase.child('platforms/npm/name').set('gagno')
     //     })
     //   })
     // })

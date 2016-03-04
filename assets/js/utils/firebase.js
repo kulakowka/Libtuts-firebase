@@ -14,12 +14,12 @@ const firebase = new Firebase('https://' + process.env.APP_ID + '.firebaseio.com
 //   }, cancelCallback, context)
 // }
 
-firebase.toArray = function (obj) {
-  return Object.keys(obj).map((key) => {
-    let item = obj[key]
-    item.id = key
-    return item
-  })
-}
+// firebase.toArray = function (obj) {
+//   return Object.keys(obj).map((key) => {
+//     let item = obj[key]
+//     item.id = key
+//     return item
+//   })
+// }
 
 export default firebase

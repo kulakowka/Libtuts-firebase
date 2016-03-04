@@ -1,18 +1,34 @@
-// Platforms
+/**
+ * Queue
+ */
+
+path /test_tasks {
+  read() { true }
+  write() { true }
+}
+
+path /queue {
+  read() { true }
+  write() { true }
+}
+
+path /queue/tasks {
+  index() { ['_state'] }
+}
+
+/**
+ * Platforms
+ */
 
 path /platforms {
   read() { true }
 }
 
 path /platforms/{id} is Platform {
-  read() { true }
   write() { isServerWorker() }
 }
 
-path /platform_projects/{id} is PlatformProject {
-  read() { true }
-  write() { isServerWorker() }
-}
+path /platform_projects/{id} is PlatformProject;
 
 type Platform {
   name: String,
@@ -23,21 +39,19 @@ type PlatformProject {
   $other: Boolean
 }
 
-// Languages
+/**
+ * Languages
+ */
 
 path /languages {
   read() { true }
 }
 
 path /languages/{id} is Language {
-  read() { true }
   write() { isServerWorker() }
 }
 
-path /language_projects/{id} is LanguageProject {
-  read() { true }
-  write() { isServerWorker() }
-}
+path /language_projects/{id} is LanguageProject;
 
 type Language {
   name: String,
@@ -49,7 +63,7 @@ type LanguageProject {
 }
 
 // Helpers
-
+isUser() { auth != null }
 isCurrentUser(uid) { auth != null && auth.uid == uid }
 isAdminUser() { auth != null && auth.admin == true }
 isServerWorker() { auth != null && auth.uid == 'server_worker' }

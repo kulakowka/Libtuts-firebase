@@ -2,18 +2,20 @@ import m from 'mithril'
 import numeral from 'numeral'
 import helpers from '../../utils/helpers'
 
-export default function Platform (item) {
-  const url = helpers.platformUrl(item)
-  const imgUrl = helpers.picUrl(item)
+export default function Platform (data) {
+  const id = data.key()
+  const {name, projectsCount} = data.val()
+  const url = helpers.platformUrl(id)
+  const imgUrl = helpers.picUrl(id)
 
   return (
-    <div class='platformItem' key={item.id}>
+    <div class='platformItem' key={id}>
       <a href={url} config={m.route}>
         <img src={imgUrl}/>
       </a>
-      <h3><a href={url} config={m.route}>{item.name}</a></h3>
+      <h3><a href={url} config={m.route}>{name}</a></h3>
       <div class='meta'>
-        <a href={url} config={m.route} title={numeral(item.projectsCount).format('0,0')}>{numeral(item.projectsCount).format('0a')} projects</a>
+        <a href={url} config={m.route} title={numeral(projectsCount).format('0,0')}>{numeral(projectsCount).format('0a')} projects</a>
       </div>
     </div>
    )

@@ -1,6 +1,6 @@
 {
-  "firebase": "amber-torch-8839",
-  "public": "public",
+  "firebase": "libtuts",
+  "rules": "config/firebase/rules.json",
   "ignore": [
     "firebase.json",
     "**/.*",

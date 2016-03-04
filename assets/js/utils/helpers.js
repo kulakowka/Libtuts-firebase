@@ -1,41 +1,32 @@
 const baseUrl = process.env.BASE_URL
 
 const helpers = {
-  tutorialUrl (item) {
-    return baseUrl + '/tutorial/' + item.id
+  tutorialUrl (id) {
+    return baseUrl + '/tutorial/' + id
   },
 
-  tutorialEditUrl (item) {
-    return baseUrl + '/tutorial/' + item.id + '/edit'
+  tutorialEditUrl (id) {
+    return baseUrl + '/tutorial/' + id + '/edit'
   },
 
-  languageUrl (item) {
-    return baseUrl + '/language/' + item.id
+  languageUrl (id) {
+    return baseUrl + '/language/' + id
   },
 
-  platformUrl (item) {
-    return baseUrl + '/' + item.id
+  platformUrl (id) {
+    return baseUrl + '/' + id
   },
 
-  projectUrl (item) {
-    return baseUrl + '/' + item.platform + '/' + item.name
+  projectUrl (id) {
+    return baseUrl + '/' + id.replace(/~/, '/')
   },
 
-  projectShieldUrl (item) {
-    return baseUrl + '/shield/' + item.platform + '/' + item.name + '.svg'
+  projectShieldUrl (id) {
+    return baseUrl + '/shield/' + id.replace(/~/, '/') + '.svg'
   },
 
-  picUrl (item) {
-    return baseUrl + '/images/pics/' + encodeURIComponent(item.id) + '.png'
-  },
-
-  dataValToArrayWithId (data) {
-    data = data.val()
-    return Object.keys(data).map((id) => {
-      const item = data[id]
-      item.id = id
-      return item
-    })
+  picUrl (id) {
+    return baseUrl + '/images/pics/' + id + '.png'
   }
 }
 

@@ -13,16 +13,16 @@ var token = tokenGenerator.createToken(
   {admin: true}
 )
 
-module.exports.get = function getData (path, callback) {
+module.exports.get = function getData (path, qs, callback) {
   debug(`get data from /${path}.json`)
   request({
     uri: `https://${APP_ID}.firebaseio.com/${path}.json`,
     method: 'get',
     json: true,
     time: true,
-    qs: {
+    qs: Object.assign({
       auth: token
-    }
+    }, qs)
   }, (err, res, body) => {
     debug('get data elapsedTime: %d ms', res.elapsedTime)
     callback(err, body)

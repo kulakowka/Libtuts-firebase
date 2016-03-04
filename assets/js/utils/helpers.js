@@ -27,6 +27,15 @@ const helpers = {
 
   picUrl (item) {
     return baseUrl + '/images/pics/' + encodeURIComponent(item.id) + '.png'
+  },
+
+  dataValToArrayWithId (data) {
+    data = data.val()
+    return Object.keys(data).map((id) => {
+      const item = data[id]
+      item.id = id
+      return item
+    })
   }
 }
 

@@ -1,10 +1,10 @@
 import m from 'mithril'
 import Item from './item'
 
-export default function Platforms (items) {
+export default function Platforms (list) {
   return (
     <div class='platformsGrid'>
-      {items.map(Item)}
+      {list.map(Item)}
     </div>
    )
 }

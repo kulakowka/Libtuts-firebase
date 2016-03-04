@@ -9,7 +9,6 @@ var data = require('./data')
 data = data.reduce((data, name) => {
   const id = name.toLowerCase().replace(/\s/g, '-').replace(/\#/g, 'sharp').replace(/\+/g, 'p')
   data[id] = {
-    id,
     name,
     projectsCount: 0
   }

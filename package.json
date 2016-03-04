@@ -2,6 +2,8 @@
   "name": "libtuts-firebase",
   "version": "1.0.0",
   "scripts": {
+    "seed:languages": "DEBUG=app:* node seeders/languages",
+    "seed:platforms": "DEBUG=app:* node seeders/languages",
     "start:server": "DEBUG=app:* nodemon server/bin/www",
     "start:client": "gulp",
     "clean": "gulp clean",

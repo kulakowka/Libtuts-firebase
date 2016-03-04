@@ -45,17 +45,17 @@ type PlatformProject {
 
 path /languages {
   read() { true }
-}
-
-path /languages/{id} is Language {
   write() { isServerWorker() }
 }
+
+path /languages/{id} is Language;
 
 path /language_projects/{id} is LanguageProject;
 
 type Language {
   name: String,
   projectsCount: Number | Null
+  tutorialsCount: Number | Null
 }
 
 type LanguageProject {

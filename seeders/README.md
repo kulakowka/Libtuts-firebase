@@ -1,17 +1,17 @@
 #### Seed languages:
 
 ```
-DEBUG=seed:* node seeders/languages/index.js
+DEBUG=app:* node seeders/languages
 ```
 
 #### Seed platforms:
 
 ```
-DEBUG=seed:* node seeders/platforms/index.js
+DEBUG=app:* node seeders/platforms
 ```
 
 #### Seed tutorials:
 
 ```
-DEBUG=seed:* node seeders/tutorials/index.js
+DEBUG=app:* node seeders/tutorials
 ```

@@ -1,17 +1,23 @@
 #### Projects grabber:
 
 ```
-DEBUG=worker:* node workers/projects
+DEBUG=app:* node workers/projects
 ```
 
 #### Platforms worker:
 
 ```
-DEBUG=worker:* node workers/platforms
+DEBUG=app:* node workers/platforms
 ```
 
 #### Languages worker:
 
 ```
-DEBUG=worker:* node workers/languages
+DEBUG=app:* node workers/languages
+```
+
+#### Test worker:
+
+```
+DEBUG=app:* node workers/test
 ```

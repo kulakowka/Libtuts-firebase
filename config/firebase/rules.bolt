@@ -1,16 +1,16 @@
-// Allow anyone to read the list of Posts.
-path /posts {
-  read() { true }
+path /users/{id} is User;
+path /rooms/{id} is Room;
+
+type User {
+  name: NameString,
+  isAdmin: Boolean
 }
 
-// All individual Posts are writable by anyone.
-path /posts/{id} is Post {
-  write() { true }
+type Room {
+  name: NameString,
+  creator: String
 }
 
-type Post {
-  validate() { this.message.length <= 140 }
-
-  message: String,
-  from: String
+type NameString extends String {
+  validate() { this.length > 0 && this.length <= 32 }
 }

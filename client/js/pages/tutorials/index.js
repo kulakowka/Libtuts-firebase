@@ -1,11 +1,14 @@
-import m from 'mithril'
 import firebase from '../../utils/firebase'
+import firebaseMixin from '../../utils/firebaseMixin'
 import List from '../../components/tutorials/list'
+
+const ref = firebase.child('Tutorials')
 
 const Tutorials = {
   controller (args) {
-    this.list = m.prop([])
-    firebase.on('tutorials', 'value', (data) => this.list(firebase.toArray(data.val())))
+    var scope = firebaseMixin(this)
+
+    scope.onlivedata(ref, (data) => (scope.data = data))
   },
 
   view (ctrl) {
@@ -13,7 +16,7 @@ const Tutorials = {
       <div class='row'>
         <div class='col col-8 col-l'>
           <section>
-            {List(ctrl.list())}
+            {List(ctrl.data)}
           </section>
         </div>
       </div>

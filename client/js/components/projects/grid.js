@@ -1,10 +1,9 @@
-import m from 'mithril'
 import Item from './item'
 
-export default function Projects (items) {
+export default function Projects (list) {
   return (
     <div class='projectsGrid'>
-      {items.map(Item)}
+      {list && list.map(Item)}
     </div>
    )
 }

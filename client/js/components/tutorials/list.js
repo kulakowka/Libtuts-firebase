@@ -1,10 +1,9 @@
-import m from 'mithril'
 import Item from './item'
 
-export default function Tutorials (items) {
+export default function Tutorials (list) {
   return (
     <div class='tutorialsList'>
-      {items.map(Item)}
+      {list && list.map(Item)}
     </div>
    )
 }

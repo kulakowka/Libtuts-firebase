@@ -1,17 +1,20 @@
-import m from 'mithril'
 import firebase from '../../utils/firebase'
+import firebaseMixin from '../../utils/firebaseMixin'
 import Grid from '../../components/projects/grid'
+
+const ref = firebase.child('Projects')
 
 const Projects = {
   controller (args) {
-    this.list = m.prop([])
-    firebase.on('projects', 'value', (data) => this.list(firebase.toArray(data.val())))
+    var scope = firebaseMixin(this)
+
+    scope.onlivedata(ref, (data) => (scope.data = data))
   },
 
   view (ctrl) {
     return (
       <section>
-        {Grid(ctrl.list())}
+        {Grid(ctrl.data)}
       </section>
     )
   }

@@ -1,28 +1,36 @@
 import m from 'mithril'
 import request from 'request'
 import firebase from '../../utils/firebase'
+import firebaseMixin from '../../utils/firebaseMixin'
 import Languages from '../../components/languages/grid'
 import Projects from '../../components/projects/grid'
 import Tutorials from '../../components/tutorials/list'
 
+const languagesRef = firebase.child('Languages')
+const projectsRef = firebase.child('Projects')
+const tutorialsRef = firebase.child('Tutorials')
+
 const Homepage = {
   controller (args) {
-    this.tutorials = m.prop([])
-    this.languages = m.prop([])
-    this.projects = m.prop([])
+    var scope = firebaseMixin(this)
+
+    scope.onlivedata(languagesRef, (data) => (scope.languages = data))
+    scope.onlivedata(projectsRef, (data) => (scope.projects = data))
+    scope.onlivedata(tutorialsRef, (data) => (scope.tutorials = data))
+
     // firebase.on('tutorials', 'value', (data) => this.tutorials(firebase.toArray(data.val())))
     // firebase.on('languages', 'value', (data) => this.languages(firebase.toArray(data.val())))
     // firebase.on('projects', 'value', (data) => this.projects(firebase.toArray(data.val())))
 
     // --------- ТЕСТИРУЕМ ----------
 
-    function getTutorial (id) {
-      return firebase.child('Tutorials').child(id).once('value').then((snap) => {
-        return snap.val()
-      })
-    }
+    // function getTutorial (id) {
+    //   return firebase.child('Tutorials').child(id).once('value').then((snap) => {
+    //     return snap.val()
+    //   })
+    // }
 
-    getTutorial('t0000001').then((tutorial) => console.log(tutorial))
+    // getTutorial('t0000001').then((tutorial) => console.log(tutorial))
 
     // ВСЕ ЗАПРОСЫ ПРО КОММЕНТЫ
 
@@ -235,7 +243,7 @@ const Homepage = {
         <div class='row row-l'>
           <div class='col col-7'>
             <section>
-              {Tutorials(ctrl.tutorials())}
+              {Tutorials(ctrl.tutorials)}
             </section>
           </div>
           <div class='col col-3'>
@@ -246,10 +254,10 @@ const Homepage = {
         <div class='row row-l'>
           <div class='col'>
             <section>
-              {Projects(ctrl.projects())}
+              {Projects(ctrl.projects)}
             </section>
             <section>
-              {Languages(ctrl.languages())}
+              {Languages(ctrl.languages)}
             </section>
           </div>
         </div>

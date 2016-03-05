@@ -14,7 +14,7 @@ export default function About (data) {
     keywords
   } = data
 
-  languages = []
+  languages = helpers.toArray(languages)
   const url = helpers.projectUrl(_id)
   const shieldSrc = helpers.projectShieldUrl(_id)
 
@@ -30,25 +30,29 @@ export default function About (data) {
           {' '}
         </div>
         <dl class='meta'>
-          <dt>Homepage:</dt>
-          <dd>{homepage ? <a href={homepage}>{homepage}</a> : null}</dd>
+          {!homepage ? null : [
+            <dt>Homepage:</dt>,
+            <dd>{homepage ? <a href={homepage}>{homepage}</a> : null}</dd>
+          ]}
 
-          <dt>Repository:</dt>
-          <dd>{repository ? <a href={repository}>{repository}</a> : null}</dd>
+          {!repository ? null : [
+            <dt>Repository:</dt>,
+            <dd>{repository ? <a href={repository}>{repository}</a> : null}</dd>
+          ]}
 
-          <dt>Languages:</dt>
-          <dd>
-            {languages.map((language, index) => {
-              return <span>{index ? ', ' : null}<a href={'/language/' + language.id}>{language.name}</a></span>
-            })}
-          </dd>
+          {!languages.length ? null : [
+            <dt>Languages:</dt>,
+            <dd>
+              {helpers.tagsByCommas(languages, (language, i) => <a href={helpers.languageUrl(language.key)} key={i}>{language.value}</a>)}
+            </dd>
+          ]}
 
-          <dt>Keywords:</dt>
-          <dd>
-            {keywords && keywords.map((keyword, index) => {
-              return <span>{index ? ', ' : null}<a href={'/search?keywords=' + keyword}>{keyword}</a></span>
-            })}
-          </dd>
+          {!keywords.length ? null : [
+            <dt>Keywords:</dt>,
+            <dd>
+              {helpers.tagsByCommas(keywords, (keyword, i) => <a href={helpers.keywordUrl(keyword)} key={i}>{keyword}</a>)}
+            </dd>
+          ]}
         </dl>
       </section>
     </div>

@@ -45,18 +45,18 @@ function Presence (route, userid, onremove) {
 export default function MainLayout (header, footer, body) {
   return {
     controller () {
-      let route = m.route()
-      route = route === '/' ? '~homepage' : route.replace(/\W/g, '~')
+      // let route = m.route()
+      // route = route === '/' ? '~homepage' : route.replace(/\W/g, '~')
 
-      var presence = new Presence(route, 'kulakowka')
+      // var presence = new Presence(route, 'kulakowka')
 
-      firebase.child('_presence/' + route).on('value', function (snap) {
-        console.log('%d online users at %s ', snap.numChildren(), m.route())
-      })
+      // firebase.child('_presence/' + route).on('value', function (snap) {
+      //   console.log('%d online users at %s ', snap.numChildren(), m.route())
+      // })
 
       return {
         onunload: function () {
-          presence.remove()
+          // presence.remove()
         }
       }
     },

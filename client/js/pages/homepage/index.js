@@ -1,7 +1,7 @@
 import m from 'mithril'
 import request from 'request'
 import firebase from '../../utils/firebase'
-import firebaseMixin from '../../utils/firebaseMixin'
+import firebaseMixin from 'mithril-firebase-mixin'
 import Languages from '../../components/languages/grid'
 import Projects from '../../components/projects/grid'
 import Tutorials from '../../components/tutorials/list'
@@ -12,7 +12,7 @@ const tutorialsRef = firebase.child('Tutorials')
 
 const Homepage = {
   controller (args) {
-    var scope = firebaseMixin(this)
+    var scope = firebaseMixin(m, this)
 
     scope.onlivedata(languagesRef, (data) => (scope.languages = data))
     scope.onlivedata(projectsRef, (data) => (scope.projects = data))

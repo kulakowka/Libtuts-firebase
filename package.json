@@ -4,7 +4,6 @@
   "scripts": {
     "seed": "DEBUG=app:* node seeders/all",
     "seed:projects": "DEBUG=app:* node seeders/projects",
-
     "start:server": "DEBUG=app:* nodemon server/bin/www",
     "start:client": "gulp",
     "clean": "gulp clean",
@@ -37,6 +36,7 @@
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^4.2.2",
     "mithril": "^0.2.2-rc.1",
+    "mithril-firebase-mixin": "0.0.1",
     "moment": "^2.11.2",
     "numeral": "^1.5.3",
     "require-dir": "^0.3.0",

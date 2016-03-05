@@ -4,7 +4,7 @@ import About from '../../components/projects/about'
 
 const Project = {
   controller (args) {
-    let id = m.route.param('platform') + '~' + m.route.param('name')
+    let id = m.route.param('id')
     this.project = m.prop()
     firebase.on('projects/' + id, 'value', (data) => this.project(data.val()))
   },

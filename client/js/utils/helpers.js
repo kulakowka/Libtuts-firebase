@@ -13,16 +13,12 @@ const helpers = {
     return baseUrl + '/language/' + id
   },
 
-  platformUrl (id) {
-    return baseUrl + '/' + id
-  },
-
   projectUrl (id) {
-    return baseUrl + '/' + id.replace(/~/, '/')
+    return baseUrl + '/project/' + id
   },
 
   projectShieldUrl (id) {
-    return baseUrl + '/shield/' + id.replace(/~/, '/') + '.svg'
+    return baseUrl + '/shield/' + id + '.svg'
   },
 
   picUrl (id) {

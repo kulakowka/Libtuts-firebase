@@ -17,7 +17,6 @@ const Header = {
             <a class='item' href='/tutorials' config={m.route}>Tutorials</a>
             <a class='item' href='/projects' config={m.route}>Projects</a>
             <a class='item' href='/languages' config={m.route}>Languages</a>
-            <a class='item' href='/platforms' config={m.route}>Platforms</a>
           </nav>
 
           {currentUser ? (

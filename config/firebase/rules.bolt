@@ -17,28 +17,6 @@ path /queue/tasks {
 }
 
 /**
- * Platforms
- */
-
-path /platforms {
-  read() { true }
-  write() { isServerWorker() }
-}
-
-path /platforms/{id} is Platform;
-
-path /platform_projects/{id} is PlatformProject;
-
-type Platform {
-  name: String,
-  projectsCount: Number | Null
-}
-
-type PlatformProject {
-  $other: Boolean
-}
-
-/**
  * Languages
  */
 
@@ -59,6 +37,28 @@ type Language {
 
 type LanguageProject {
   $other: Boolean
+}
+
+/**
+ * Projects
+ */
+
+path /projects {
+  read() { true }
+  write() { isServerWorker() }
+}
+
+path /projects/{id} is Project;
+
+type Project {
+  name: String
+  description: String | Null
+  languages: Map<String, String>
+  homepage: String | Null
+  repository: String | Null
+  keywords: String[]
+  tutorialsCount: Number
+  projectsCount: Number
 }
 
 // Helpers

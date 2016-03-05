@@ -1,5 +1,5 @@
 // import signInPage from './components/signInPage'
-// import signUpPage from './components/signUpPage'
+import SignUp from './pages/auth/signup'
 import Homepage from './pages/homepage/index'
 import TutorialsIndex from './pages/tutorials/index'
 import TutorialShow from './pages/tutorials/show'
@@ -17,7 +17,7 @@ const mainLayout = mixinLayout.bind(null, layout, header, footer)
 const routes = {
   '/': mainLayout(Homepage),
   // '/signin': signInPage,
-  // '/signup': signUpPage,
+  '/auth/signup': mainLayout(SignUp),
   '/tutorials': mainLayout(TutorialsIndex),
   '/tutorial/:id': mainLayout(TutorialShow),
   '/languages': mainLayout(LanguagesIndex),

@@ -61,8 +61,40 @@ type Project {
   projectsCount: Number
 }
 
-// Helpers
-isUser() { auth != null }
-isCurrentUser(uid) { auth != null && auth.uid == uid }
-isAdminUser() { auth != null && auth.admin == true }
+/**
+ * Users
+ */
+
+path /users/{uid} is User {
+  read() { isCurrentUser(uid) }
+  write() { isCurrentUser(uid) }
+}
+
+type User {
+  uid: String
+  username: String
+}
+
+/**
+ * Tutorials
+ */
+
+path /tutorials/{id} is Tutorial {
+  read() { true }
+  write() { createOnly(this) && isSignedIn() || isCurrentUser(this.uid) }
+}
+
+type Tutorial {
+  uid: String
+  title: String
+  description: String | Null
+  createdAt: Number
+}
+
+//
+// Helper Functions
+//
 isServerWorker() { auth != null && auth.uid == 'server_worker' }
+isCurrentUser(uid) { isSignedIn() && auth.uid == uid }
+isSignedIn() { auth != null }
+createOnly(value) { prior(value) == null && value != null }

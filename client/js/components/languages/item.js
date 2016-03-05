@@ -3,13 +3,12 @@ import numeral from 'numeral'
 import helpers from '../../utils/helpers'
 
 export default function Language (data) {
-  const id = data.key()
-  const {name, projectsCount, tutorialsCount} = data.val()
-  const url = helpers.languageUrl(id)
-  const imgUrl = helpers.picUrl(id)
+  const {_id, name, projectsCount, tutorialsCount} = data
+  const url = helpers.languageUrl(_id)
+  const imgUrl = helpers.picUrl(_id)
 
   return (
-    <div class='languageItem' key={id}>
+    <div class='languageItem' key={_id}>
       <a href={url} config={m.route}>
         <img src={imgUrl}/>
       </a>

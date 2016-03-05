@@ -1,23 +1,24 @@
 import m from 'mithril'
 import firebase from '../../utils/firebase'
+import firebaseMixin from '../../utils/firebaseMixin'
+
 import Grid from '../../components/languages/grid'
+
+const ref = firebase.child('Languages')
 
 const Languages = {
   controller (args) {
-    this.list = m.prop(null)
+    var scope = firebaseMixin(this)
 
-    // Get languages and redraw when it will received from firebase
-    m.startComputation()
-    firebase.child('languages').on('value', (data) => {
-      this.list(data)
-      m.endComputation()
+    scope.onlivedata(ref, function (data) {
+      scope.languages = data
     })
   },
 
   view (ctrl) {
     return (
       <section>
-        {Grid(ctrl.list())}
+        {Grid(ctrl.languages)}
       </section>
     )
   }

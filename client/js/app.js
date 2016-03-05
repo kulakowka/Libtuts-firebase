@@ -9,3 +9,4 @@ firebase.onAuth(function (authData) {
 m.route.mode = 'pathname'
 
 m.route(document.getElementById('root'), '/', routes)
+

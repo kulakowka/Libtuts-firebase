@@ -1,3 +1,4 @@
+
 Нам надо будет сделать также:
 
 1. Вот тут написано как правильно добавлять публикации пользователя в базу данных:
@@ -18,8 +19,15 @@ https://www.firebase.com/blog/2015-10-07-how-to-keep-your-data-consistent.html
 4. Сидилку можно переделать нахуй :) Она больше не нужна:
 https://www.firebase.com/blog/2015-11-06-firebase-cli-data-commands.html
 
-5. 
+5. Вот тут заебись написано про систему которая показывает кто щас онлайн:
+https://www.firebase.com/blog/2013-06-17-howto-build-a-presence-system.html
 
+6. Эмоджи блять обязательно сделать:
+https://github.com/arvida/emoji-cheat-sheet.com
+https://github.com/kof/emoticons
+https://github.com/Ranks/emojify.js
+https://github.com/HenrikJoreteg/emoji-images
+https://github.com/frissdiegurke/emoji-parser
 
 
 Вот как надо сделать синхронизированный массив и методы для добавления, удаления и тд.

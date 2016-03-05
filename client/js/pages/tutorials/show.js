@@ -1,18 +1,38 @@
 import moment from 'moment'
 import m from 'mithril'
 import firebase from '../../utils/firebase'
+import firebaseMixin from 'mithril-firebase-mixin'
 import helpers from '../../utils/helpers'
 
 const Tutorial = {
   controller (args) {
-    let id = m.route.param('id')
-    this.tutorial = m.prop()
-    firebase.on('tutorials/' + id, 'value', (data) => this.tutorial(data.val()))
+    const id = m.route.param('id')
+    const ref = firebase.child('Tutorials/' + id)
+    let scope = firebaseMixin(m, this)
+
+    scope.onData(ref, (data) => (scope.data = data))
   },
 
   view (ctrl) {
-    const tutorial = ctrl.tutorial()
-    const editUrl = helpers.tutorialEditUrl(tutorial)
+    if (!ctrl.data) return <p>loading...</p>
+
+    let {
+      _id,
+      title,
+      contentHtml,
+      sourceUrl,
+      sourceDomain,
+      createdAt,
+      updatedAt,
+      author,
+      languages,
+      projects,
+      keywords
+    } = ctrl.data
+
+    languages = helpers.toArray(languages)
+    projects = helpers.toArray(projects)
+    const editUrl = helpers.tutorialEditUrl(_id)
 
     return (
       <div class='row'>
@@ -21,54 +41,59 @@ const Tutorial = {
             <div class='edit'>
               <a class='btn' href={editUrl}>Edit tutorial</a>
             </div>
-            <h1>{tutorial.title}</h1>
-            {tutorial.contentHtml ? (
+            <h1>{title}</h1>
+            {contentHtml ? (
               <section>
-                <div class='content cm-s-libtuts'>{tutorial.contentHtml}</div>
+                <div class='content cm-s-libtuts'>{m.trust(contentHtml)}</div>
               </section>
             ) : null}
             <section>
               <dl class='meta'>
-                <dt>Source URL:</dt>
-                <dd>
-                  <a href={tutorial.sourceUrl} target='_blank'>{tutorial.sourceUrl}</a>
-                </dd>
-                <dt>Domain:</dt>
-                <dd>
-                  <a href={'/domain/' + tutorial.sourceDomain}>{tutorial.sourceDomain}</a>
-                </dd>
+                {!sourceUrl ? null : [
+                  <dt>Source URL:</dt>,
+                  <dd>
+                    <a href={sourceUrl} target='_blank'>{sourceUrl}</a>
+                  </dd>
+                ]}
+
+                {!sourceDomain ? null : [
+                  <dt>Domain:</dt>,
+                  <dd>
+                    <a href={'/domain/' + sourceDomain}>{sourceDomain}</a>
+                  </dd>
+                ]}
+
                 <dt>Created at:</dt>
-                <dd>{moment(tutorial.createdAt).fromNow()}</dd>
+                <dd>{moment(createdAt).fromNow()}</dd>
+
                 <dt>Updated at:</dt>
-                <dd>{moment(tutorial.updatedAt).fromNow()}</dd>
+                <dd>{moment(updatedAt).fromNow()}</dd>
+
                 <dt>Created by:</dt>
                 <dd>
-                  <a href={'/user/' + tutorial.creator}>{tutorial.creator}</a>
+                  <a href={'/user/' + author}>{author}</a>
                 </dd>
-                <dt>Languages:</dt>
-                <dd>
-                  {tutorial.languages && tutorial.languages.map((language, index) => {
-                    return <span>{index ? ', ' : null}<a href={'/language/' + language}>{language}</a></span>
-                  })}
-                </dd>
-                <dt>Platforms:</dt>
-                <dd>
-                  {tutorial.platforms && tutorial.platforms.map((platform, index) => {
-                    return <span>{index ? ', ' : null}<a href={'/' + platform}>{platform}</a></span>
-                  })}
-                </dd>
-                <dt>Projects:</dt>
-                <dd>
-                  {tutorial.projects && tutorial.projects.map((project, index) => {
-                    return <span>{index ? ', ' : null}<a href={'/' + project}>{project}</a></span>
-                  })}
-                </dd>
-                <dt>Keywords:</dt>
-                <dd>
-                  {tutorial.keywords && tutorial.keywords.map((keyword, index) => {
-                    return <span>{index ? ', ' : null}<a href={'/search?keywords=' + keyword}>{keyword}</a></span>
-                  })}
-                </dd>
+
+                {!languages.length ? null : [
+                  <dt>Languages:</dt>,
+                  <dd>
+                    {helpers.tagsByCommas(languages, (language, i) => <a href={helpers.languageUrl(language.key)} key={i}>{language.value}</a>)}
+                  </dd>
+                ]}
+
+                {!projects.length ? null : [
+                  <dt>Projects:</dt>,
+                  <dd>
+                    {helpers.tagsByCommas(projects, (project, i) => <a href={helpers.projectUrl(project.key)} key={i}>{project.value}</a>)}
+                  </dd>
+                ]}
+
+                {!keywords.length ? null : [
+                  <dt>Keywords:</dt>,
+                  <dd>
+                    {helpers.tagsByCommas(keywords, (keyword, i) => <a href={helpers.keywordUrl(keyword)} key={i}>{keyword}</a>)}
+                  </dd>
+                ]}
               </dl>
             </section>
             <div id='comments'>

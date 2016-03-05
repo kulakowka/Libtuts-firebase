@@ -5,7 +5,7 @@ import helpers from '../../utils/helpers'
 
 export default function Tutorial (data) {
   const {_id, title, sourceUrl, author, createdAt, sourceDomain, commentsCount} = data
-  const url = helpers.projectUrl(_id)
+  const url = helpers.tutorialUrl(_id)
 
   return (
     <div class='tutorialItem' key={_id}>

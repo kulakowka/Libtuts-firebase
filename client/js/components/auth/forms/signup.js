@@ -28,8 +28,7 @@ const Form = {
           <input type='text' oninput={m.withAttr('value', user.email)} value={user.email()} placeholder='Email' required autocomplete='off'/>
         </div>
         <div class='field-description'>
-          You will occasionally receive account related emails.
-          We promise not to share your email with anyone.
+          You will occasionally receive account related emails. We promise not to share your email with anyone.
         </div>
 
         <div class='field'>
@@ -40,9 +39,7 @@ const Form = {
         </div>
 
         <div class='field-description'>
-          By clicking on "Create an account" below,
-          you are agreeing to the <a href='/terms' config={m.route}>Terms of Service</a>
-          and the <a href='/privacy' config={m.route}>Privacy Policy</a>.
+          By clicking on "Create an account" below, you are agreeing to the <a href='/terms' config={m.route}>Terms of Service</a> and the <a href='/privacy' config={m.route}>Privacy Policy</a>.
         </div>
 
         <div class='field buttons center'>

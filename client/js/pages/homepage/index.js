@@ -12,11 +12,11 @@ const tutorialsRef = firebase.child('Tutorials')
 
 const Homepage = {
   controller (args) {
-    var scope = firebaseMixin(m, this)
+    let scope = firebaseMixin(m, this)
 
-    scope.onlivedata(languagesRef, (data) => (scope.languages = data))
-    scope.onlivedata(projectsRef, (data) => (scope.projects = data))
-    scope.onlivedata(tutorialsRef, (data) => (scope.tutorials = data))
+    scope.onLiveData(languagesRef, (data) => (scope.languages = data))
+    scope.onLiveData(projectsRef, (data) => (scope.projects = data))
+    scope.onLiveData(tutorialsRef, (data) => (scope.tutorials = data))
 
     // firebase.on('tutorials', 'value', (data) => this.tutorials(firebase.toArray(data.val())))
     // firebase.on('languages', 'value', (data) => this.languages(firebase.toArray(data.val())))

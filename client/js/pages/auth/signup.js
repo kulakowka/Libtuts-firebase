@@ -6,7 +6,7 @@ const SignUp = {
     return (
       <div class='row'>
         <div class='col col-4'>
-          <h1>Create your personal account</h1>
+          <h1>Create your LibTuts account</h1>
           <section>
             {m.component(Form)}
           </section>

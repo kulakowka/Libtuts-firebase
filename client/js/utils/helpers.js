@@ -17,12 +17,47 @@ const helpers = {
     return baseUrl + '/project/' + id
   },
 
+  keywordUrl (keyword) {
+    return baseUrl + '/search?keyword=' + keyword
+  },
+
   projectShieldUrl (id) {
     return baseUrl + '/shield/' + id + '.svg'
   },
 
   picUrl (id) {
     return baseUrl + '/images/pics/' + id + '.png'
+  },
+
+  /**
+   * toArray: Return an array from object
+   *
+   * > toArray({node: true, js: true})
+   * [{key: 'node', value: true}, {key: 'js', value: true}]
+   */
+  toArray (obj) {
+    return Object.keys(obj).map((key) => {
+      return {key, value: obj[key]}
+    })
+  },
+
+  /**
+   * > tagsByCommas(keywords, (keyword, i) => <a href={'/search?keywords=' + keyword} key={i}>{keyword}</a>)}
+   */
+  tagsByCommas (data, iterator) {
+    const tags = (data || []).map(iterator)
+    return helpers.intersperse(tags, ', ')
+  },
+
+  /* intersperse: Return an array with the separator interspersed between
+   * each element of the input array.
+   *
+   * > _([1,2,3]).intersperse(0)
+   * [1,0,2,0,3]
+   */
+  intersperse (arr, sep) {
+    if (arr.length === 0) return []
+    return arr.slice(1).reduce((xs, x) => xs.concat([sep, x]), [arr[0]])
   }
 }
 

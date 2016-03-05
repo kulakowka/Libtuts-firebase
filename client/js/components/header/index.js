@@ -14,7 +14,7 @@ const Header = {
     const currentUser = firebase.getAuth()
 
     if (currentUser) currentUser.username = currentUser.password.email.split('@')[0]
-   
+
     return (
       <header>
         <div class='inner'>

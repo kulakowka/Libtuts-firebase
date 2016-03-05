@@ -1,45 +1,51 @@
 import m from 'mithril'
 import helpers from '../../utils/helpers'
 
-export default function About (item) {
-  const url = helpers.projectUrl(item)
-  const shieldSrc = helpers.projectShieldUrl(item)
+export default function About (data) {
+  if (!data) return <p>loading...</p>
+
+  let {
+    _id,
+    name,
+    description,
+    languages,
+    homepage,
+    repository,
+    keywords
+  } = data
+
+  languages = []
+  const url = helpers.projectUrl(_id)
+  const shieldSrc = helpers.projectShieldUrl(_id)
 
   return (
     <div class='aboutProject'>
-      <h1>{item.name}</h1>
-      {item.description ? <p class='description'>{item.description}</p> : null}
+      <h1>{name}</h1>
+      {description ? <p class='description'>{description}</p> : null}
       <section>
         <div class='shields'>
           <a href={url} config={m.route}>
             <img src={shieldSrc} alt='Tutorials'/>
           </a>
           {' '}
-          {item.platform === 'npm' ? (
-            <a href={'https://www.npmjs.org/package/' + item.name}>
-              <img src={'http://img.shields.io/npm/v/' + item.name + '.svg'} alt='NPM version'/>
-            </a>
-          ) : null}
         </div>
         <dl class='meta'>
           <dt>Homepage:</dt>
-          <dd>{item.homepageUrl ? <a href={item.homepageUrl}>{item.homepageUrl}</a> : null}</dd>
+          <dd>{homepage ? <a href={homepage}>{homepage}</a> : null}</dd>
 
           <dt>Repository:</dt>
-          <dd>{item.repositoryUrl ? <a href={item.repositoryUrl}>{item.repositoryUrl}</a> : null}</dd>
+          <dd>{repository ? <a href={repository}>{repository}</a> : null}</dd>
 
-          <dt>Registry:</dt>
-          <dd>{item.packageManagerUrl ? <a href={item.packageManagerUrl}>{item.packageManagerUrl}</a> : null}</dd>
-
-          <dt>Language:</dt>
-          <dd>{item.language ? <a href={'/language/' + item.language}>{item.language}</a> : null}</dd>
-
-          <dt>Platform:</dt>
-          <dd>{item.platform ? <a href={'/' + item.platform}>{item.platform}</a> : null}</dd>
+          <dt>Languages:</dt>
+          <dd>
+            {languages.map((language, index) => {
+              return <span>{index ? ', ' : null}<a href={'/language/' + language.id}>{language.name}</a></span>
+            })}
+          </dd>
 
           <dt>Keywords:</dt>
           <dd>
-            {item.keywords.map((keyword, index) => {
+            {keywords && keywords.map((keyword, index) => {
               return <span>{index ? ', ' : null}<a href={'/search?keywords=' + keyword}>{keyword}</a></span>
             })}
           </dd>

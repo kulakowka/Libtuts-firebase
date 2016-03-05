@@ -1,9 +1,11 @@
 import Item from './item'
 
 export default function Languages (list) {
+  if (!list) return <p>loading...</p>
+
   return (
     <div class='languagesGrid'>
-      {list && list.map(Item)}
+      {list.map(Item)}
     </div>
    )
 }

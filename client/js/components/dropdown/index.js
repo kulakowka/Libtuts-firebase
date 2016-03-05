@@ -17,7 +17,7 @@ const Dropdown = {
     return (
       <span class={'dropdown' + (ctrl.isOpen() ? ' open' : '')}>
         <a class='item handle' onclick={toggle}>{args.handle}</a>
-        <span class='menu right'>{args.items}</span>
+        {args.items}
       </span>
     )
   }

@@ -1,4 +1,4 @@
-// import signInPage from './components/signInPage'
+import SignIn from './pages/auth/signin'
 import SignUp from './pages/auth/signup'
 import Homepage from './pages/homepage/index'
 import TutorialsIndex from './pages/tutorials/index'
@@ -16,7 +16,7 @@ const mainLayout = mixinLayout.bind(null, layout, header, footer)
 
 const routes = {
   '/': mainLayout(Homepage),
-  // '/signin': signInPage,
+  '/auth/signin': mainLayout(SignIn),
   '/auth/signup': mainLayout(SignUp),
   '/tutorials': mainLayout(TutorialsIndex),
   '/tutorial/:id': mainLayout(TutorialShow),

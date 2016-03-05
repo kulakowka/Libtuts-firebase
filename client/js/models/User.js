@@ -11,4 +11,8 @@ User.create = function (data) {
   return firebase.createUser(data)
 }
 
+User.auth = function (data) {
+  return firebase.authWithPassword(data)
+}
+
 export default User

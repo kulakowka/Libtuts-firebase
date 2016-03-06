@@ -1,4 +1,5 @@
 import m from 'mithril'
+import helpers from '../../../utils/helpers'
 import User from '../../../models/User'
 
 const Form = {
@@ -22,24 +23,26 @@ const Form = {
     var user = ctrl.user()
 
     return (
-      <form class='defaultForm' onsubmit={ctrl.create.bind(this, user)}>
+      <section>
+        <form class='defaultForm' onsubmit={ctrl.create.bind(this, user)}>
 
-        <div class='field'>
-          <input type='text' oninput={m.withAttr('value', user.email)} value={user.email()} placeholder='Email' required autocomplete='off'/>
-        </div>
+          <div class='field'>
+            <input type='text' oninput={m.withAttr('value', user.email)} value={user.email()} placeholder='Email' required autocomplete='off'/>
+          </div>
 
-        <div class='field'>
-          <input type='text' oninput={m.withAttr('value', user.password)} value={user.password()} placeholder='Password' required autocomplete='off'/>
-        </div>
+          <div class='field'>
+            <input type='password' oninput={m.withAttr('value', user.password)} value={user.password()} placeholder='Password' required autocomplete='off'/>
+          </div>
 
-        <div class='field-description'>
-          <a href='/auth/forgot_password' config={m.route}>Forgot password?</a>
-        </div>
+          <div class='field-description'>
+            <a href={helpers.resetPasswordUrl()} config={m.route}>Forgot password?</a>
+          </div>
 
-        <div class='field buttons center'>
-          <button class='btn btn-action btn-wide' type='submit'>Sign in</button>
-        </div>
-      </form>
+          <div class='field buttons center'>
+            <button class='btn btn-action btn-wide' type='submit'>Sign in</button>
+          </div>
+        </form>
+      </section>
     )
   }
 }

@@ -1,4 +1,5 @@
 import m from 'mithril'
+import helpers from '../../../utils/helpers'
 import User from '../../../models/User'
 
 const Form = {
@@ -22,30 +23,32 @@ const Form = {
     var user = ctrl.user()
 
     return (
-      <form class='defaultForm' onsubmit={ctrl.create.bind(this, user)}>
+      <section>
+        <form class='defaultForm' onsubmit={ctrl.create.bind(this, user)}>
 
-        <div class='field'>
-          <input type='text' oninput={m.withAttr('value', user.email)} value={user.email()} placeholder='Email' required autocomplete='off'/>
-        </div>
-        <div class='field-description'>
-          You will occasionally receive account related emails. We promise not to share your email with anyone.
-        </div>
+          <div class='field'>
+            <input type='text' oninput={m.withAttr('value', user.email)} value={user.email()} placeholder='Email' required autocomplete='off'/>
+          </div>
+          <div class='field-description'>
+            You will occasionally receive account related emails. We promise not to share your email with anyone.
+          </div>
 
-        <div class='field'>
-          <input type='text' oninput={m.withAttr('value', user.password)} value={user.password()} placeholder='Password' required autocomplete='off'/>
-        </div>
-        <div class='field-description'>
-          Use at least one lowercase letter, one numeral, and seven characters.
-        </div>
+          <div class='field'>
+            <input type='password' oninput={m.withAttr('value', user.password)} value={user.password()} placeholder='Password' required autocomplete='off'/>
+          </div>
+          <div class='field-description'>
+            Use at least one lowercase letter, one numeral, and seven characters.
+          </div>
 
-        <div class='field-description'>
-          By clicking on "Create an account" below, you are agreeing to the <a href='/terms' config={m.route}>Terms of Service</a> and the <a href='/privacy' config={m.route}>Privacy Policy</a>.
-        </div>
+          <div class='field-description'>
+            By clicking on "Create an account" below, you are agreeing to the <a href={helpers.infoPageUrl('terms')} config={m.route}>Terms of Service</a> and the <a href={helpers.infoPageUrl('privacy')} config={m.route}>Privacy Policy</a>.
+          </div>
 
-        <div class='field buttons center'>
-          <button class='btn btn-action btn-wide' type='submit'>Create an account</button>
-        </div>
-      </form>
+          <div class='field buttons center'>
+            <button class='btn btn-action btn-wide' type='submit'>Create an account</button>
+          </div>
+        </form>
+      </section>
     )
   }
 }

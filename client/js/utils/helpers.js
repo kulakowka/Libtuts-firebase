@@ -1,16 +1,32 @@
 const baseUrl = process.env.BASE_URL
 
 const helpers = {
+  tutorialsUrl () {
+    return baseUrl + '/tutorials'
+  },
+
   tutorialUrl (id) {
     return baseUrl + '/tutorial/' + id
+  },
+
+  addTutorialUrl () {
+    return baseUrl + '/tutorials/new'
   },
 
   tutorialEditUrl (id) {
     return baseUrl + '/tutorial/' + id + '/edit'
   },
 
+  languagesUrl () {
+    return baseUrl + '/languages'
+  },
+
   languageUrl (id) {
     return baseUrl + '/language/' + id
+  },
+
+  projectsUrl () {
+    return baseUrl + '/projects'
   },
 
   projectUrl (id) {
@@ -39,6 +55,26 @@ const helpers = {
 
   commentUrl (tutorialId, id) {
     return baseUrl + '/tutorial/' + tutorialId + '#comment_' + id
+  },
+
+  settingsUrl () {
+    return baseUrl + '/settings'
+  },
+
+  resetPasswordUrl () {
+    return baseUrl + '/auth/reset_password'
+  },
+
+  signInUrl () {
+    return baseUrl + '/auth/signin'
+  },
+
+  signUpUrl () {
+    return baseUrl + '/auth/signup'
+  },
+
+  infoPageUrl (page) {
+    return baseUrl + '/' + page
   },
 
   /**

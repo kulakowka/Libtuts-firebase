@@ -15,4 +15,8 @@ User.auth = function (data) {
   return firebase.authWithPassword(data)
 }
 
+User.resetPassword = function (data) {
+  return firebase.resetPassword(data)
+}
+
 export default User

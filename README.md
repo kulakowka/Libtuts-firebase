@@ -29,6 +29,13 @@ https://github.com/Ranks/emojify.js
 https://github.com/HenrikJoreteg/emoji-images
 https://github.com/frissdiegurke/emoji-parser
 
+7. Вот тут про то как эластик серч прикрутить к firebase
+https://www.firebase.com/blog/2014-01-02-queries-part-two.html
+Можно заюзать 
+https://www.elastic.co/products
+но лучше у себя поднять
+
+
 
 а вот тут можно многому научиться
 https://github.com/firebase/firefeed

@@ -3,7 +3,9 @@ import SignUp from './pages/auth/signup'
 import ResetPassword from './pages/auth/reset_password'
 import Homepage from './pages/homepage/index'
 import TutorialsIndex from './pages/tutorials/index'
+import TutorialsNew from './pages/tutorials/new'
 import TutorialShow from './pages/tutorials/show'
+import TutorialEdit from './pages/tutorials/edit'
 import LanguagesIndex from './pages/languages/index'
 import LanguageShow from './pages/languages/show'
 import ProjectsIndex from './pages/projects/index'
@@ -25,7 +27,9 @@ const routes = {
   '/auth/signup': mainLayout(SignUp),
   '/auth/reset_password': mainLayout(ResetPassword),
   '/tutorials': mainLayout(TutorialsIndex),
+  '/tutorials/new': mainLayout(TutorialsNew),
   '/tutorial/:id': mainLayout(TutorialShow),
+  '/tutorial/:id/edit': mainLayout(TutorialEdit),
   '/languages': mainLayout(LanguagesIndex),
   '/language/:id': mainLayout(LanguageShow),
   '/projects': mainLayout(ProjectsIndex),

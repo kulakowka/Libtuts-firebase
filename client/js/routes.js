@@ -11,6 +11,7 @@ import ProjectShow from './pages/projects/show'
 import UserShow from './pages/users/show'
 import DomainShow from './pages/domains/show'
 import Settings from './pages/settings/index'
+import InfoPage from './pages/info/index'
 import layout from './layouts/main'
 import header from './components/header'
 import footer from './components/footer'
@@ -31,7 +32,8 @@ const routes = {
   '/project/:id': mainLayout(ProjectShow),
   '/user/:id': mainLayout(UserShow),
   '/domain/:domain': mainLayout(DomainShow),
-  '/settings': mainLayout(Settings)
+  '/settings': mainLayout(Settings),
+  '/:page': mainLayout(InfoPage)
 }
 
 export default routes

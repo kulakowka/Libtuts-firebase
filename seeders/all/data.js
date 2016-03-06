@@ -2,31 +2,13 @@ module.exports = {
 
   // ИНФО СТРАНИЦЫ
 
-  info_pages: {
-    terms: {
-      title: '<p>LibTuts Terms of Service</p>',
-      text: '<p>text</p>'
-    },
-    privacy: {
-      title: '<p>LibTuts Privacy Policy</p>',
-      text: '<p>text</p>'
-    },
-    security: {
-      title: '<p>LibTuts Security</p>',
-      text: '<p>text</p>'
-    },
-    help: {
-      title: '<p>LibTuts Help</p>',
-      text: '<p>text</p>'
-    },
-    about: {
-      title: '<p>About LibTuts</p>',
-      text: '<p>text</p>'
-    },
-    contact: {
-      title: '<p>LibTuts Terms of Service</p>',
-      text: '<p>text</p>'
-    }
+  Pages: {
+    terms: '<h1>LibTuts Terms of Service</h1><p>text</p>',
+    privacy: '<h1>LibTuts Privacy Policy</h1><p>text</p>',
+    security: '<h1>LibTuts Security</h1><p>text</p>',
+    help: '<h1>LibTuts Help</h1><p>text</p>',
+    about: '<h1>About LibTuts</h1><p>text</p>',
+    contact: '<h1>Contact LibTuts</h1><p>text</p>'
   },
 
   // ЯЗЫКИ ПРОГРАММИРОВАНИЯ

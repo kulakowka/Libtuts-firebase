@@ -1,5 +1,34 @@
 module.exports = {
 
+  // ИНФО СТРАНИЦЫ
+
+  info_pages: {
+    terms: {
+      title: '<p>LibTuts Terms of Service</p>',
+      text: '<p>text</p>'
+    },
+    privacy: {
+      title: '<p>LibTuts Privacy Policy</p>',
+      text: '<p>text</p>'
+    },
+    security: {
+      title: '<p>LibTuts Security</p>',
+      text: '<p>text</p>'
+    },
+    help: {
+      title: '<p>LibTuts Help</p>',
+      text: '<p>text</p>'
+    },
+    about: {
+      title: '<p>About LibTuts</p>',
+      text: '<p>text</p>'
+    },
+    contact: {
+      title: '<p>LibTuts Terms of Service</p>',
+      text: '<p>text</p>'
+    }
+  },
+
   // ЯЗЫКИ ПРОГРАММИРОВАНИЯ
 
   Languages: {

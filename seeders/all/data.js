@@ -150,21 +150,59 @@ module.exports = {
 
   _language_tutorials: {
     javascript: {
-      t0000001: true
+      t0000001: {
+        title: 'Tutorial 1 with source url',
+        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        sourceDomain: 'facebook.github.io',
+        author: 'kulakowka',
+        createdAt: 1457210853551,
+        updatedAt: 1457210863551
+      }
     },
     ruby: {
-      t0000001: true,
-      t0000002: true
+      t0000001: {
+        title: 'Tutorial 1 with source url',
+        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        sourceDomain: 'facebook.github.io',
+        author: 'kulakowka',
+        createdAt: 1457210853551,
+        updatedAt: 1457210863551
+      },
+      t0000002: {
+        title: 'Tutorial 2 without source url',
+        author: 'kulakowka',
+        createdAt: 1453210853551,
+        updatedAt: 1457210863551
+      }
     }
   },
 
   _project_tutorials: {
     react: {
-      t0000001: true
+      t0000001: {
+        title: 'Tutorial 1 with source url',
+        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        sourceDomain: 'facebook.github.io',
+        author: 'kulakowka',
+        createdAt: 1457210853551,
+        updatedAt: 1457210863551
+      }
     },
     babel: {
-      t0000001: true,
-      t0000002: true
+      t0000001: {
+        title: 'Tutorial 1 with source url',
+        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        sourceDomain: 'facebook.github.io',
+        author: 'kulakowka',
+        createdAt: 1457210853551,
+        updatedAt: 1457210863551
+      },
+      t0000002: {
+        title: 'Tutorial 2 without source url',
+        author: 'kulakowka',
+        createdAt: 1453210853551,
+        updatedAt: 1457210863551
+      }
     }
   },
 

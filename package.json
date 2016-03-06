@@ -6,7 +6,7 @@
     "seed:fb": "firebase data:set / ./seeders/all/data.json -f libtuts",
     "start:server": "DEBUG=app:* nodemon server/bin/www",
     "start:client": "gulp",
-    "start:worker": "DEBUG=app:* nodemon workers/test",
+    "start:worker:comments": "DEBUG=app:* nodemon workers/comments",
     "clean": "gulp clean",
     "build": "NODE_ENV=production gulp build",
     "bolt": "firebase-bolt < config/firebase/rules.bolt",

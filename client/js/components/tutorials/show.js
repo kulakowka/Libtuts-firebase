@@ -21,19 +21,21 @@ export default function Tutorial (data) {
 
   languages = helpers.toArray(languages)
   projects = helpers.toArray(projects)
-  const editUrl = helpers.tutorialEditUrl(_id)
 
   return (
     <article class='tutorial'>
       <div class='edit'>
-        <a class='btn' href={editUrl}>Edit tutorial</a>
+        <a class='btn' href={helpers.tutorialEditUrl(_id)}>Edit tutorial</a>
       </div>
+
       <h1>{title}</h1>
-      {contentHtml ? (
+
+      {!contentHtml ? null : (
         <section>
           <div class='content cm-s-libtuts'>{m.trust(contentHtml)}</div>
         </section>
-      ) : null}
+      )}
+
       <section>
         <dl class='meta'>
           {!sourceUrl ? null : [
@@ -46,7 +48,7 @@ export default function Tutorial (data) {
           {!sourceDomain ? null : [
             <dt>Domain:</dt>,
             <dd>
-              <a href={'/domain/' + sourceDomain}>{sourceDomain}</a>
+              <a href={helpers.domainUrl(sourceDomain)}>{sourceDomain}</a>
             </dd>
           ]}
 
@@ -58,7 +60,7 @@ export default function Tutorial (data) {
 
           <dt>Created by:</dt>
           <dd>
-            <a href={'/user/' + author}>{author}</a>
+            <a href={helpers.userUrl(author)}>{author}</a>
           </dd>
 
           {!languages.length ? null : [

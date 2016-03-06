@@ -97,7 +97,9 @@ module.exports = {
 
   Users: {
     kulakowka: {
-      name: 'Anton Kulakov'
+      name: 'Anton Kulakov',
+      homepage: 'http://kulakowka.com',
+      about: 'Frontend developer'
     }
   },
 
@@ -215,6 +217,25 @@ module.exports = {
         contentHtml: '<p>I wanted to share my personal opinion about what happened at the conference (without disclosing the names or content of any private conversations).</p>',
         tutorial: 't0000002',
         author: 'kulakowka'
+      }
+    }
+  },
+
+  _user_tutorials: {
+    kulakowka: {
+      t0000001: {
+        title: 'Tutorial 1 with source url',
+        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        sourceDomain: 'facebook.github.io',
+        author: 'kulakowka',
+        createdAt: 1457210853551,
+        updatedAt: 1457210863551
+      },
+      t0000002: {
+        title: 'Tutorial 2 without source url',
+        author: 'kulakowka',
+        createdAt: 1453210853551,
+        updatedAt: 1457210863551
       }
     }
   }

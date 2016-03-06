@@ -18,9 +18,7 @@ const Project = {
     return (
       <div>
         {About(ctrl.project)}
-        <section>
-          {Tutorials(ctrl.tutorials)}
-        </section>
+        {Tutorials(ctrl.tutorials)}
       </div>
     )
   }

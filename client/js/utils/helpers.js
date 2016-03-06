@@ -30,11 +30,15 @@ const helpers = {
   },
 
   userUrl (id) {
-    return baseUrl + '/users/' + id
+    return baseUrl + '/user/' + id
+  },
+
+  domainUrl (domain) {
+    return baseUrl + '/domain/' + domain
   },
 
   commentUrl (tutorialId, id) {
-    return baseUrl + '/tutorials/' + tutorialId + '#comment_' + id
+    return baseUrl + '/tutorial/' + tutorialId + '#comment_' + id
   },
 
   /**

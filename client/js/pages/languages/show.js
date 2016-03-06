@@ -20,12 +20,8 @@ const Language = {
     return (
       <div>
         {About(ctrl.language)}
-        <section>
-          {Tutorials(ctrl.tutorials)}
-        </section>
-        <section>
-          {Projects(ctrl.projects)}
-        </section>
+        {Tutorials(ctrl.tutorials)}
+        {Projects(ctrl.projects)}
       </div>
     )
   }

@@ -11,11 +11,7 @@ const Projects = {
   },
 
   view (ctrl) {
-    return (
-      <section>
-        {Grid(ctrl.projects)}
-      </section>
-    )
+    return Grid(ctrl.projects)
   }
 }
 

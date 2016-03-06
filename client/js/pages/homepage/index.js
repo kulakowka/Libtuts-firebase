@@ -19,9 +19,9 @@ const Homepage = {
       <div>
         <div class='row row-l'>
           <div class='col col-7'>
-            <section>
-              {Tutorials(ctrl.tutorials)}
-            </section>
+            
+            {Tutorials(ctrl.tutorials)}
+            
           </div>
           <div class='col col-3'>
             <div>include ../includes/sidebar/about</div>
@@ -30,12 +30,8 @@ const Homepage = {
         </div>
         <div class='row row-l'>
           <div class='col'>
-            <section>
-              {Projects(ctrl.projects)}
-            </section>
-            <section>
-              {Languages(ctrl.languages)}
-            </section>
+            {Projects(ctrl.projects)}
+            {Languages(ctrl.languages)}
           </div>
         </div>
       </div>

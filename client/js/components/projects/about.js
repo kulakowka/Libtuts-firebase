@@ -21,14 +21,17 @@ export default function About (data) {
   return (
     <div class='aboutProject'>
       <h1>{name}</h1>
-      {description ? <p class='description'>{description}</p> : null}
+
+      {!description ? null : <p class='description'>{description}</p>}
+
+      <div class='shields'>
+        <a href={url} config={m.route}>
+          <img src={shieldSrc} alt='Tutorials'/>
+        </a>
+        {' '}
+      </div>
+
       <section>
-        <div class='shields'>
-          <a href={url} config={m.route}>
-            <img src={shieldSrc} alt='Tutorials'/>
-          </a>
-          {' '}
-        </div>
         <dl class='meta'>
           {!homepage ? null : [
             <dt>Homepage:</dt>,

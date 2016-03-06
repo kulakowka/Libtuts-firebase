@@ -14,9 +14,7 @@ const Tutorials = {
     return (
       <div class='row'>
         <div class='col col-8 col-l'>
-          <section>
-            {List(ctrl.tutorials)}
-          </section>
+          {List(ctrl.tutorials)}
         </div>
       </div>
     )

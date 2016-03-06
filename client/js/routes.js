@@ -7,6 +7,7 @@ import LanguagesIndex from './pages/languages/index'
 import LanguageShow from './pages/languages/show'
 import ProjectsIndex from './pages/projects/index'
 import ProjectShow from './pages/projects/show'
+import UserShow from './pages/users/show'
 import layout from './layouts/main'
 import header from './components/header'
 import footer from './components/footer'
@@ -23,7 +24,8 @@ const routes = {
   '/languages': mainLayout(LanguagesIndex),
   '/language/:id': mainLayout(LanguageShow),
   '/projects': mainLayout(ProjectsIndex),
-  '/project/:id': mainLayout(ProjectShow)
+  '/project/:id': mainLayout(ProjectShow),
+  '/user/:id': mainLayout(UserShow)
 }
 
 export default routes

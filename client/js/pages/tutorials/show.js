@@ -20,12 +20,8 @@ let Tutorial = {
         <div class='col col-8 col-l'>
           {Show(ctrl.tutorial)}
 
-          <div id='comments'>
-            <h2>Questions and discussion</h2>
-            include ../comments/includes/form
-            <br/>
-            {Comments(ctrl.comments)}
-          </div>
+          <h2>Questions and discussion</h2>
+          {Comments(ctrl.comments)}
         </div>
       </div>
     )

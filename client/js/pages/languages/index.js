@@ -11,11 +11,7 @@ const Languages = {
   },
 
   view (ctrl) {
-    return (
-      <section>
-        {Grid(ctrl.languages)}
-      </section>
-    )
+    return Grid(ctrl.languages)
   }
 }
 

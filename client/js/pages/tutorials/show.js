@@ -3,19 +3,24 @@ import m from 'mithril'
 import firebase from '../../utils/firebase'
 import firebaseMixin from 'mithril-firebase-mixin'
 import helpers from '../../utils/helpers'
+import Comments from '../../components/comments/list'
 
 const Tutorial = {
   controller (args) {
     const id = m.route.param('id')
-    const ref = firebase.child('Tutorials/' + id)
+    const tutorialsRef = firebase.child('Tutorials/' + id)
+    const commentsRef = firebase.child('Comments').orderByChild('tutorial').equalTo(id)
+
     let scope = firebaseMixin(m, this)
 
-    scope.onData(ref, (data) => (scope.data = data))
+    scope.onLiveData(commentsRef, (data) => (scope.comments = data))
+    scope.onData(tutorialsRef, (data) => (scope.tutorial = data))
   },
 
   view (ctrl) {
-    if (!ctrl.data) return <p>loading...</p>
+    if (!ctrl.tutorial) return <p>loading...</p>
 
+    // console.log('comments', ctrl.comments)
     let {
       _id,
       title,
@@ -28,7 +33,7 @@ const Tutorial = {
       languages,
       projects,
       keywords
-    } = ctrl.data
+    } = ctrl.tutorial
 
     languages = helpers.toArray(languages)
     projects = helpers.toArray(projects)
@@ -100,7 +105,7 @@ const Tutorial = {
               <h2>Questions and discussion</h2>
               include ../comments/includes/form
               <br/>
-              include ../comments/includes/list
+              {Comments(ctrl.comments)}
             </div>
           </article>
         </div>

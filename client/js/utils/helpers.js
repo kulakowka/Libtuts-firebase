@@ -29,6 +29,14 @@ const helpers = {
     return baseUrl + '/images/pics/' + id + '.png'
   },
 
+  userUrl (id) {
+    return baseUrl + '/users/' + id
+  },
+
+  commentUrl (tutorialId, id) {
+    return baseUrl + '/tutorials/' + tutorialId + '#comment_' + id
+  },
+
   /**
    * toArray: Return an array from object
    *

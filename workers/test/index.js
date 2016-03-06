@@ -1,38 +1,36 @@
+'use strict'
+
 var debug = require('debug')('app:worker:test')
 var ref = require('../../utils/firebase')
 var Queue = require('firebase-queue')
-
-var queueRef = ref.child('queue')
+var marked = require('marked')
 
 // Create queue
 var options = {
   'numWorkers': 1
 }
-var queue = new Queue(queueRef, options, function (data, progress, resolve, reject) {
+let count = 0
+var queue = new Queue(ref.child('queue/comments'), options, function (data, progress, resolve, reject) {
+
+  data.contentHtml = marked(data.content)
+  delete data.content
+
   // Read and process task data
-  debug('process task data', data)
+  console.log('')
+  console.log('process %d task data', count++, data)
 
-  // Do some work
-  var percentageComplete = 0
-  var interval = setInterval(function () {
-    percentageComplete += 20
-    if (percentageComplete >= 100) {
-      clearInterval(interval)
+  setTimeout(function () {
+    resolve(data)
+  }, 15000)
 
-      data.fromServer = 'Hello from server!!!'
-
-      // Finish the task
-      ref.child('test_tasks').push(data, function (err) {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(data)
-        }
-      })
+  // Finish the task
+  ref.child('Comments').push(data, function (err) {
+    if (err) {
+      reject(err)
     } else {
-      progress(percentageComplete)
+      resolve(data)
     }
-  }, 1000)
+  })
 })
 
 // Safe queue shutdown

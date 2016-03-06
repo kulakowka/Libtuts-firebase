@@ -6,6 +6,7 @@
     "seed:fb": "firebase data:set / ./seeders/all/data.json -f libtuts",
     "start:server": "DEBUG=app:* nodemon server/bin/www",
     "start:client": "gulp",
+    "start:worker": "DEBUG=app:* nodemon workers/test",
     "clean": "gulp clean",
     "build": "NODE_ENV=production gulp build",
     "bolt": "firebase-bolt < config/firebase/rules.bolt",
@@ -36,7 +37,7 @@
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^4.2.2",
     "mithril": "^0.2.3",
-    "mithril-firebase-mixin": "0.0.4",
+    "mithril-firebase-mixin": "0.0.5",
     "moment": "^2.11.2",
     "numeral": "^1.5.3",
     "require-dir": "^0.3.0",
@@ -51,6 +52,7 @@
     "firebase": "^2.4.1",
     "firebase-queue": "^1.2.1",
     "firebase-token-generator": "^2.0.0",
+    "marked": "^0.3.5",
     "request": "^2.69.0"
   }
 }

@@ -30,20 +30,6 @@ https://github.com/HenrikJoreteg/emoji-images
 https://github.com/frissdiegurke/emoji-parser
 
 
-Вот как надо сделать синхронизированный массив и методы для добавления, удаления и тд.
-Туда же можно и компутацию от мифрила добавить.
-https://www.firebase.com/blog/2014-05-06-synchronized-arrays.html
-
-Вот кстати и либа готовая есть:
-https://github.com/katowulf/Firebase.getAsArray
-на ее основе я и сделаю свою систему для работы с данными
-
-или готовое для мифрила 
-https://gist.github.com/webcss/e4aaa7d95342d107e1ce
-
-
-
-
 а вот тут можно многому научиться
 https://github.com/firebase/firefeed
 

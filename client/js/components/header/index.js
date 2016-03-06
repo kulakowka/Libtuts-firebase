@@ -1,5 +1,6 @@
 import m from 'mithril'
 import firebase from '../../utils/firebase'
+import helpers from '../../utils/helpers'
 import Dropdown from '../dropdown'
 
 const Header = {
@@ -30,9 +31,7 @@ const Header = {
               <a class='item' href='/tutorial/new' config={m.route}>Add Tutorial</a>
               {m.component(Dropdown, {handle: currentUser.username, items: (
                 <span class='menu right'>
-                  <a href={'/users/' + currentUser.username} config={m.route}>{currentUser.username}</a>
-                  <a href={'/users/' + currentUser.username + '/tutorials'} config={m.route}>Your Tutorials</a>
-                  <a href={'/users/' + currentUser.username + '/comments'} config={m.route}>Your Comments</a>
+                  <a href={helpers.userUrl(currentUser.username)} config={m.route}>{currentUser.username}</a>
                   <a href={'/settings/profile'} config={m.route}>Settings</a>
                   <a href={'#logout'} onclick={ctrl.logout}>Sign Out</a>
                 </span>

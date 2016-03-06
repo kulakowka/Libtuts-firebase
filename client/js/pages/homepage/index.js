@@ -18,14 +18,8 @@ const Homepage = {
     return (
       <div>
         <div class='row row-l'>
-          <div class='col col-7'>
-            
+          <div class='col'>
             {Tutorials(ctrl.tutorials)}
-            
-          </div>
-          <div class='col col-3'>
-            <div>include ../includes/sidebar/about</div>
-            <div>include ../includes/sidebar/search</div>
           </div>
         </div>
         <div class='row row-l'>

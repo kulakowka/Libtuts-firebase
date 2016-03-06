@@ -42,8 +42,8 @@ module.exports = {
   Tutorials: {
     t0000001: {
       title: 'Tutorial 1 with source url',
-      sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
-      sourceDomain: 'facebook.github.io',
+      source: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+      domain: 'facebook.github.io',
       keywords: ['react', 'reactjs', 'javascript', 'ruby'],
       languages: {
         javascript: 'JavaScript',
@@ -125,8 +125,8 @@ module.exports = {
     javascript: {
       t0000001: {
         title: 'Tutorial 1 with source url',
-        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
-        sourceDomain: 'facebook.github.io',
+        source: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        domain: 'facebook.github.io',
         author: 'kulakowka',
         createdAt: 1457210853551,
         updatedAt: 1457210863551
@@ -135,8 +135,8 @@ module.exports = {
     ruby: {
       t0000001: {
         title: 'Tutorial 1 with source url',
-        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
-        sourceDomain: 'facebook.github.io',
+        source: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        domain: 'facebook.github.io',
         author: 'kulakowka',
         createdAt: 1457210853551,
         updatedAt: 1457210863551
@@ -154,8 +154,8 @@ module.exports = {
     react: {
       t0000001: {
         title: 'Tutorial 1 with source url',
-        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
-        sourceDomain: 'facebook.github.io',
+        source: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        domain: 'facebook.github.io',
         author: 'kulakowka',
         createdAt: 1457210853551,
         updatedAt: 1457210863551
@@ -164,8 +164,8 @@ module.exports = {
     babel: {
       t0000001: {
         title: 'Tutorial 1 with source url',
-        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
-        sourceDomain: 'facebook.github.io',
+        source: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        domain: 'facebook.github.io',
         author: 'kulakowka',
         createdAt: 1457210853551,
         updatedAt: 1457210863551
@@ -225,8 +225,8 @@ module.exports = {
     kulakowka: {
       t0000001: {
         title: 'Tutorial 1 with source url',
-        sourceUrl: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
-        sourceDomain: 'facebook.github.io',
+        source: 'https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html',
+        domain: 'facebook.github.io',
         author: 'kulakowka',
         createdAt: 1457210853551,
         updatedAt: 1457210863551

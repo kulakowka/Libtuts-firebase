@@ -7,10 +7,10 @@ export default function Tutorial (data) {
   const {
     _id,
     title,
-    sourceUrl,
+    source,
     author,
     createdAt,
-    sourceDomain,
+    domain,
     commentsCount
   } = data
 
@@ -19,8 +19,8 @@ export default function Tutorial (data) {
   return (
     <div class='tutorialItem' key={_id}>
       <h3>
-        {sourceUrl ? (
-          <a href={sourceUrl} target='_blank'>{title}</a>
+        {source ? (
+          <a href={source} target='_blank'>{title}</a>
         ) : (
           <a href={url} config={m.route}>{title}</a>
         )}
@@ -29,8 +29,8 @@ export default function Tutorial (data) {
         <a href={url + '#comments'} config={m.route} title={numeral(commentsCount).format('0,0')}>{numeral(commentsCount).format('0a')} comments</a>
         <a href={helpers.userUrl(author)} config={m.route}>{author}</a>
         <a href={url} config={m.route}>{moment(createdAt).fromNow()}</a>
-        {!sourceDomain ? null : (
-          <a href={helpers.domainUrl(sourceDomain)} config={m.route}>{sourceDomain}</a>
+        {!domain ? null : (
+          <a href={helpers.domainUrl(domain)} config={m.route}>{domain}</a>
         )}
       </div>
     </div>

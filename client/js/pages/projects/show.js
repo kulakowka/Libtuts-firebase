@@ -18,6 +18,7 @@ const Project = {
     return (
       <div>
         {About(ctrl.project)}
+        <h2>Popular {ctrl.project.name} Tutorials</h2>
         {Tutorials(ctrl.tutorials)}
       </div>
     )

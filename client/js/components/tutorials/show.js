@@ -9,8 +9,8 @@ export default function Tutorial (data) {
       _id,
       title,
       contentHtml,
-      sourceUrl,
-      sourceDomain,
+      source,
+      domain,
       createdAt,
       updatedAt,
       author,
@@ -38,17 +38,17 @@ export default function Tutorial (data) {
 
       <section>
         <dl class='meta'>
-          {!sourceUrl ? null : [
+          {!source ? null : [
             <dt>Source URL:</dt>,
             <dd>
-              <a href={sourceUrl} target='_blank'>{sourceUrl}</a>
+              <a href={source} target='_blank'>{source}</a>
             </dd>
           ]}
 
-          {!sourceDomain ? null : [
+          {!domain ? null : [
             <dt>Domain:</dt>,
             <dd>
-              <a href={helpers.domainUrl(sourceDomain)}>{sourceDomain}</a>
+              <a href={helpers.domainUrl(domain)}>{domain}</a>
             </dd>
           ]}
 

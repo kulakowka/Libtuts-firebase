@@ -20,7 +20,9 @@ const User = {
     return (
       <div>
         {About(ctrl.user)}
+        <h2>Tutorials</h2>
         {Tutorials(ctrl.tutorials)}
+        <h2>Comments</h2>
         {Comments(ctrl.comments)}
       </div>
     )

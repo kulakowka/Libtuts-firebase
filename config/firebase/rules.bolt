@@ -81,6 +81,7 @@ type User {
 
 path /Tutorials {
   read() { true }
+  index() { [ 'domain' ] }
 }
 
 path /Tutorials/{id} is Tutorial {

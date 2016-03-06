@@ -5,10 +5,9 @@ import List from '../../components/tutorials/list'
 
 const Tutorials = {
   controller (args) {
-    const ref = firebase.child('Tutorials')
-    let scope = firebaseMixin(m, this)
+    firebaseMixin(m, this)
 
-    scope.onLiveData(ref, (data) => (scope.data = data))
+    this.onLiveData(firebase.child('Tutorials'), (data) => (this.tutorials = data))
   },
 
   view (ctrl) {
@@ -16,7 +15,7 @@ const Tutorials = {
       <div class='row'>
         <div class='col col-8 col-l'>
           <section>
-            {List(ctrl.data)}
+            {List(ctrl.tutorials)}
           </section>
         </div>
       </div>

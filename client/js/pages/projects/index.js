@@ -5,16 +5,15 @@ import Grid from '../../components/projects/grid'
 
 const Projects = {
   controller (args) {
-    const ref = firebase.child('Projects')
-    let scope = firebaseMixin(m, this)
+    firebaseMixin(m, this)
 
-    scope.onLiveData(ref, (data) => (scope.data = data))
+    this.onLiveData(firebase.child('Projects'), (data) => (this.projects = data))
   },
 
   view (ctrl) {
     return (
       <section>
-        {Grid(ctrl.data)}
+        {Grid(ctrl.projects)}
       </section>
     )
   }

@@ -140,11 +140,17 @@ module.exports = {
 
   _language_projects: {
     javascript: {
-      react: true,
-      babel: true
+      react: {
+        name: 'React.js'
+      },
+      babel: {
+        name: 'Babel.js'
+      }
     },
     ruby: {
-      react: true
+      react: {
+        name: 'React.js'
+      }
     }
   },
 
@@ -205,16 +211,6 @@ module.exports = {
       }
     }
   },
-
-  // _project_languages: {
-  //   react: {
-  //     javascript: true
-  //   },
-  //   babel: {
-  //     javascript: true,
-  //     ruby: true
-  //   }
-  // },
 
   _tutorial_comments: {
     t0000001: {

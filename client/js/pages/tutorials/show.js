@@ -6,23 +6,12 @@ import Show from '../../components/tutorials/show'
 
 let Tutorial = {
   controller (args) {
+    firebaseMixin(m, this)
+
     let id = m.route.param('id')
-    let tutorialsRef = firebase.child('Tutorials/' + id)
-    let commentsRef = firebase.child('Comments').orderByChild('tutorial').equalTo(id)
 
-    let scope = firebaseMixin(m, this)
-
-    scope.onData(tutorialsRef, (data) => (scope.tutorial = data))
-    scope.onLiveData(commentsRef, (data) => (scope.comments = data))
-
-    // создадим новый таск для обработки коммента
-    let ref = firebase.child('queue/comments/tasks')
-
-    ref.push({
-      content: '### Hello its comment\nThen its a text of this comment',
-      tutorial: 't0000001',
-      author: 'kulakowka'
-    }, (err) => console.log('Comment pushed to queue', err))
+    this.onData(firebase.child('Tutorials/' + id), (data) => (this.tutorial = data))
+    this.onLiveData(firebase.child('_tutorial_comments/' + id), (data) => (this.comments = data))
   },
 
   view (ctrl) {

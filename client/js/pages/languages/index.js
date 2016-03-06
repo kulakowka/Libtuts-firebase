@@ -5,16 +5,15 @@ import Grid from '../../components/languages/grid'
 
 const Languages = {
   controller (args) {
-    const ref = firebase.child('Languages')
-    let scope = firebaseMixin(m, this)
+    firebaseMixin(m, this)
 
-    scope.onLiveData(ref, (data) => (scope.data = data))
+    this.onLiveData(firebase.child('Languages'), (data) => (this.languages = data))
   },
 
   view (ctrl) {
     return (
       <section>
-        {Grid(ctrl.data)}
+        {Grid(ctrl.languages)}
       </section>
     )
   }

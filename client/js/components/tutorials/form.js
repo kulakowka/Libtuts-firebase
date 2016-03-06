@@ -9,13 +9,13 @@ const Form = {
     const currentUser = firebase.getAuth()
 
     console.log(args)
-    
+
     this.tutorial = m.prop(args.tutorial)
 
     this.save = function (tutorial, event) {
       event.preventDefault()
 
-      Tutorial.save({
+      Tutorial.save(args.id, {
         title: tutorial.title(),
         source: tutorial.source(),
         content: tutorial.content(),

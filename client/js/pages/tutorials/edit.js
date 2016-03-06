@@ -19,7 +19,7 @@ let EditTutorial = {
       <div class='row'>
         <div class='col col-8 col-l'>
           <h1>Edit tutorial</h1>
-          {m.component(Form, {tutorial: ctrl.tutorial})}
+          {m.component(Form, {tutorial: ctrl.tutorial, id: m.route.param('id')})}
         </div>
       </div>
     )

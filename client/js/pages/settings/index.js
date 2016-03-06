@@ -12,11 +12,25 @@ const Settings = {
   view (ctrl) {
     return (
       <div>
-        <h1>Settings</h1>
+        <h2>Profile settings</h2>
+        <p>username</p>
+        <p>name</p>
+        <p>homepage</p>
+        <p>about</p>
 
         <h2>Change email</h2>
+        <p>oldEmail</p>
+        <p>newEmail</p>
+        <p>password</p>
 
         <h2>Change password</h2>
+        <p>email</p>
+        <p>oldPassword</p>
+        <p>newPassword</p>
+
+        <h2>Delete account</h2>
+        <p>email</p>
+        <p>password</p>
       </div>
     )
   }

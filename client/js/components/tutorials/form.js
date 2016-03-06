@@ -8,8 +8,6 @@ const Form = {
   controller (args) {
     const currentUser = firebase.getAuth()
 
-    console.log(args)
-
     this.tutorial = m.prop(args.tutorial)
 
     this.save = function (tutorial, event) {
@@ -19,9 +17,9 @@ const Form = {
         title: tutorial.title(),
         source: tutorial.source(),
         content: tutorial.content(),
-        keywords: [], // tutorial.keywords(),
-        languages: {}, // tutorial.languages(),
-        projects: {}, // tutorial.projects(),
+        keywords: tutorial.keywords(),
+        languages: tutorial.languages(),
+        projects: tutorial.projects(),
         author: currentUser.uid,
         createdAt: Firebase.ServerValue.TIMESTAMP,
         updatedAt: Firebase.ServerValue.TIMESTAMP
